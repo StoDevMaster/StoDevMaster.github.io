@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 300;
+  color:#666;
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'),
+  url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),
+  url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');
+}
+
+@font-face  
+{
+    font-family: 'NanumBarunGothic';
+    src: url('/Content/201701/common/font/NanumBarunGothic.eot');
+    src: url('/Content/201701/common/font/NanumBarunGothic.eot') format('embedded-opentype'),
+    url('/Content/201701/common/font/NanumBarunGothic.woff') format('woff');
+}
+/* base */
+html,body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0; padding:0}
+body{font-family:'NanumBarunGothic', 'serif' !important; font-size:14px; color:#666;font-weight: 300;}
+h1,h2,h3,h4,h5,h6,strong{font-weight:normal; font-size:100%;}
+fieldset,img,button{border:0;}
+img,input,button{vertical-align:top;}
+input, button{font-family:'Noto Sans KR','돋움',Dotum,'굴림',Gulim,Helvetica,sans-serif; font-size:12px; color:#666;font-weight: 300;}
+table{border-collapse:collapse; table-layout:fixed;}
+address,em{font-style:normal;}
+ol,ul{list-style:none;}
+hr{display:none;}
+a{font-family:'Noto Sans KR','돋움',Dotum,'굴림',Gulim,Helvetica,sans-serif; text-decoration:none; color:#444444;}
+a:hover,a:active{text-decoration:none;}
+legend{position:absolute; left:-9999px; top:0}
+caption{overflow:hidden; width:0; height:0; font-size:0; line-height:0;}
+button{background:none; cursor:pointer;}
+button::-moz-focus-inner{padding:0; border:0;}
+
+/* common */
+#wrap{position:relative; left:0; top:0;}
+#container{width:980px; margin:0 auto;}
+#content{padding-bottom:40px;}
+.clearfix{*zoom:1;}
+.clearfix:after{display:block; clear:both; content:"";}

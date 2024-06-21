@@ -1,0 +1,50 @@
+﻿@charset "UTF-8";
+
+.search_result{}
+.search_result > .top{overflow:hidden; position:relative; height:30px; padding:15px 12px 0 31px; background:#fff;}
+.search_result > .top h2{float:left; font-weight:bold; font-size:14px; color:#e70000;}
+.search_result > .top p{float:right; font-size:14px; color:#333;}
+.search_result > .top a{overflow:hidden; position:absolute; left:0; top:0; width:31px; height:45px; text-indent:-10000px;}
+.search_result > .top a:before{position:absolute; left:0; top:0; width:100%; height:30px; padding-top:15px; font-weight:bold; text-align:center; text-indent:0; color:#666; content:"<";}
+
+.search_result .middle{padding:15px 12px; background:#f4f4f4; border-top:1px solid #cbcbcb; border-bottom:1px solid #cbcbcb;}
+.search_result .middle span.tit{position:absolute; left:0; top:0; width:25%; padding-top:6px; color:#656565;}
+.search_result .middle span.tit > span{display:inline-block; overflow:hidden; width:13px; height:12px; margin:-2px 5px 0 0; background:url(/Areas/Mobile/Common/Contents/images/common/search_result_check.png) 0 0 no-repeat; background-size:26px 12px; vertical-align:middle;}
+.search_result .middle span.tit > span.on{background-position:-13px 0;}
+.search_result .middle span.tit input[type=radio]{position:absolute; left:-1000px; top:0;}
+.search_result .middle .search_in{position:relative; height:26px; padding-left:25%; margin-bottom:11px;}
+.search_result .middle .search_in .in{display:block; position:relative; height:26px; padding-right:52px;}
+.search_result .middle .search_in .in input[type=text]{width:100%; height:26px; padding-left:5px; border:1px solid #cbcbcb; box-sizing:border-box;}
+.search_result .middle .search_in .in a{position:absolute; right:0; top:0; width:50px; height:19px; padding-top:5px; background:#9c9c9c; border:1px solid #8d8d8d; text-align:center; color:#fff;}
+
+.search_result .middle .search_brand{}
+.search_result .middle .search_brand{position:relative;}
+.search_result .middle .search_brand ul{overflow:hidden;}
+.search_result .middle .search_brand li{float:left; width:25%;}
+.search_result .middle .search_brand li:first-child{margin-left:25%;}
+.search_result .middle .search_brand li.top{margin-bottom:5px;}
+.search_result .middle .search_brand li a{display:block; height:19px; padding-top:5px; background:#fff; border-top:1px solid #cbcbcb; border-right:1px solid #cbcbcb; border-bottom:1px solid #cbcbcb; text-align:center; color:#666;}
+.search_result .middle .search_brand li.li1 a, .search_result .middle .search_brand li.li4 a{border-left:1px solid #cbcbcb;}
+.search_result .middle .search_brand li.on a{background:#666; border-bottom-color:#494949; color:#fff;}
+
+.search_result .product_list_area{padding:7px 0 19px;}
+.search_result .product_list_area .view_paging{height:28px; padding:0 12px; background:#d9e9f9; font-size:12px; font-weight:bold; line-height:28px; color:#333333;}
+.search_result .product_list_area .product_list{}
+.search_result .product_list ul{}
+.search_result .product_list ul li{overflow:hidden; padding:7px; border-bottom:1px solid #cbcbcb;}
+.search_result .product_list ul li.last{border-bottom:0;}
+.search_result .product_list .pro_thum{float:left; width:108px; height:108px; margin-right:8px; border:1px solid #d8d8d8;}
+.search_result .product_list .pro_thum img{width:108px; height:108px;}
+.search_result .product_list .pro_info{position:relative; left:0; top:0; padding-top:5px; margin-left:118px;}
+.search_result .product_list .pro_info p{line-height:1;}
+.search_result .product_list .pro_info .info_tit{margin-bottom:10px; line-height:150%; word-break:break-all;}
+.search_result .product_list .pro_info .info_comment{margin-bottom:5px; font-weight:bold; color:#ff0000;}
+.search_result .product_list .pro_info .info_comment span{vertical-align:middle;}
+.search_result .product_list .pro_info .info_comment .comment{margin-right:6px;}
+.search_result .product_list .pro_info .info_comment .tag{display:inline-block; padding:3px; border:1px solid #ff0000;}
+.search_result .product_list .pro_info .info_price1{margin-bottom:3px; text-decoration:line-through; color:#999999;}
+.search_result .product_list .pro_info .info_price2{font-size:16px; font-weight:bold;}
+.search_result .product_list .pro_info .info_coupon{position:absolute; right:0; bottom:0; font-size:14px; font-weight:bold; color:#ff0000;}
+.search_result .product_list .pro_info .info_coupon2{position:absolute; right:0; bottom:0; font-size:14px; font-weight:bold; color:#ff0000;}
+.search_result .product_list .pro_info .info_coupon:after{content:" 쿠폰";}
+.search_result .product_list .pro_info .info_coupon2:after{content:" 할인";}

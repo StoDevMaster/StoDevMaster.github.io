@@ -1,0 +1,24 @@
+﻿@charset "UTF-8";
+
+/* common 2016-07-30 삭제
+.header_bottom .search_inner input[type=text]{height:33px; padding-top:10px;}
+.header_bottom .util_bottom{*width:210px;}
+.gnb1_inner > ul > li > ul{*height:178px; *padding-top:12px;}
+.gnb_inner3 > div div.product .pro_price > a{*display:inline; *zoom:1;}
+.footer_top ul{*display:inline; *zoom:1;}
+*/
+/* aside 2016-07-30 삭제
+#right_aside li > a > span span.img{*zoom:1;}
+#right_aside li > a > span span.text{*zoom:1;}
+*/
+/* index 2016-07-30 삭제
+.scetion1_lbanner > .page a{*display:inline; *zoom:1;}
+*/
+
+/* layer */
+body .order_return input{line-height:150%;}
+body .return_reason1 select{padding:7px 0;}
+body .order_cancel input{line-height:150%;}
+body .cancel_reason1 select{padding:7px 0;}
+body .order_exchange input{line-height:150%;}
+body .exchange_reason1 select{padding:7px 0;}

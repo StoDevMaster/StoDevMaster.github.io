@@ -1,0 +1,55 @@
+﻿/* 07.31 */
+.proview_wrap {position:relative; margin:10px; padding:5%; background:#fff; overflow:hidden;}
+.proview_wrap + .proview_wrap {margin-top:0;}
+.pro_view_tit {color:#333; font-size:18px; font-weight:bold; text-align:center;}
+.pro_view_tit img {margin-bottom:10px; width:40px;}
+.proview_wrap .proview_box {margin-top:20px;}
+.proview_wrap .proview_box ul li {width:50%; padding:0 10px; box-sizing:border-box;}
+.proview_wrap .proview_box ul li .img img {width:100%;}
+.proview_wrap .proview_box ul li .title {margin-top:10px; text-align:center;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+.proview_wrap .proview_box ul li .title a {color:#333; font-size:14px;}
+.proview_wrap .proview_box ul li .sub_title {margin-top:5px; font-size:13px; text-align:center;}
+.proview_wrap .proview_box ul li .price {margin-top:5px; font-size:20px; font-weight:bold; text-align:center;}
+.proview_wrap .proview_prev, .proview_wrap .proview_next {position:absolute; top:39%;width:15px;}
+.proview_wrap .proview_prev img, .proview_wrap .proview_next img {width:100%;}
+.proview_wrap .proview_prev {left:0;}
+.proview_wrap .proview_next {right:0;}
+.proview_wrap .swiper-pagination {display:none;}
+
+.detail_top_title {padding: 5px 5px;}
+.detail_top_title .tit {
+    margin: 10px 0px;
+    padding: 0 5px;
+    color: #222;
+    font-weight: bold;
+    line-height: 16px;
+    font-size: 14px;
+}
+
+.detail_top_title .price {
+    overflow: hidden;
+    padding: 0 5px 8px;
+    border-bottom: 0px solid #e2e2e2;
+}
+
+.detail_top_title .price .n_price {
+    font-size: 22px;
+    color: #222;
+    font-weight: bold;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.detail_top_title .satisfy_boxx {display:block; overflow:hidden; text-align:right}
+.detail_top_title .satisfy_boxx .satisfy_blk {float:left; position:relative; width:100px; height:14px; background:url(/Areas/Mobile/images/detail/ico_stars.png) 0 0 no-repeat; background-size:79px auto; text-align:left}
+.detail_top_title .satisfy_boxx .satisfy_blk .score{float:right}
+.detail_top_title .satisfy_boxx .satisfy_blk:before {float:left; width:80px; height:14px; background:url(/Areas/Mobile/images/detail/ico_stars.png) 0 -14px no-repeat; background-size:79px auto; content:""}
+.detail_top_title .satisfy_boxx .satisfy_blk.per10:before {width:8px}
+.detail_top_title .satisfy_boxx .satisfy_blk.per20:before {width:16px}
+.detail_top_title .satisfy_boxx .satisfy_blk.per30:before {width:24px}
+.detail_top_title .satisfy_boxx .satisfy_blk.per40:before {width:32px}
+.detail_top_title .satisfy_boxx .satisfy_blk.per50:before {width:40px}
+.detail_top_title .satisfy_boxx .satisfy_blk.per60:before {width:48px}
+.detail_top_title .satisfy_boxx .satisfy_blk.per70:before {width:56px}
+.detail_top_title .satisfy_boxx .satisfy_blk.per80:before {width:64px}
+.detail_top_title .satisfy_boxx .satisfy_blk.per90:before {width:71px}

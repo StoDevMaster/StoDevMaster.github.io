@@ -1,0 +1,1384 @@
+/* 기존 */
+//////////document.domain = "stco.co.kr";
+/*상품평 쓰기 클릭*/
+var ReviewClick = function (id, order_no) {
+    ///window.open('/shared/popwrite?id=' + id, 'reviewPop', 'width=1024, height=768, top=100, left=100, fullscreen=no, menubar=no, status=no, toolbar=no, titlebar=yes, location=no, scrollbar=no');
+
+    location.href = "/shared/popwrite?id=" + id + "&order_no=" + order_no;
+
+};
+
+
+// 쿠키 생성
+function setCookie(cName, cValue, cDay) {
+    var expire = new Date();
+    expire.setDate(expire.getDate() + cDay);
+    cookies = cName + '=' + escape(cValue) + '; path=/ '; // 한글 깨짐을 막기위해 escape(cValue)를 합니다.
+    if (typeof cDay != 'undefined') cookies += ';expires=' + expire.toGMTString() + ';';
+    document.cookie = cookies;
+}
+
+// 쿠키 가져오기
+function getCookie(cName) {
+    cName = cName + '=';
+    var cookieData = document.cookie;
+    var start = cookieData.indexOf(cName);
+    var cValue = '';
+    if (start != -1) {
+        start += cName.length;
+        var end = cookieData.indexOf(';', start);
+        if (end == -1) end = cookieData.length;
+        cValue = cookieData.substring(start, end);
+    }
+    return unescape(cValue);
+}
+
+
+
+function openNclose(cNm) {
+    if (cNm == "close") {
+        $('.quick-menu-off').show();
+        $('.quick-menu-on').hide();
+        $.cookie('right_quick_menu', "close", { expires: 1, domain: "stco.co.kr" });
+    } else {
+        $('.quick-menu-off').hide();
+        $('.quick-menu-on').show();
+        $.cookie('right_quick_menu', "open", { expires: 1, domain: "stco.co.kr" });
+    }
+};
+
+function bookMark() {
+    var url = "http://www.stco.co.kr";
+    var title = "STO 통합몰";
+    var browser = navigator.userAgent.toLocaleLowerCase();
+
+    if (window.sidebar) {
+        window.sidebar.addPanel(title, url, "");
+    }
+    else if (window.external) {
+        if (browser.indexOf('chrome') == -1) {
+            window.external.AddFavorite(url, title);
+        }
+        else {
+            alert('CTRL+D 또는 Command+D를 눌러 즐겨찾기에 추가해주세요.');
+        }
+    }
+    else if (window.opera && window.print) {
+        return true;
+    }
+    else if (browser.indexOf('konqueror') != -1) {
+        alert('CTRL+B를 눌러 즐겨찾기에 추가해주세요.');
+    }
+    else if (browser.indexOf('webkit') != -1) {
+        alert('CTRL+B 또는 Command+B를 눌러 즐겨찾기에 추가해주세요.');
+    }
+    else {
+        alert('사용하고 계시는 브라우저에서는 이 버튼으로 즐겨찾기를 추가할 수 없습니다. 수동으로 링크를 추가해주세요.');
+    }
+};
+
+function InStr(strSearch, charSearchFor) {
+    var sLen = charSearchFor.length;
+    for (i = 0; i < strSearch.length; i++) {
+        if (charSearchFor == strSearch.substring(i, i + sLen)) {
+            return i;
+        }
+    }
+    return -1;
+};
+
+function format_number(val) {
+    b = val + "c"
+    c = b.length
+    a = b.substr(0, c - 1)
+    b = a.length; c = b / 3; f = Math.floor(b / 3); d = Math.round((c - f) * 3); e = Math.round((c - f) * 3)
+    f = new Array
+    for (i = 0; i <= c; i++) {
+        if (i == 0) { ds = a.substr(0, d) }
+        else if (i == 1) { ds = a.substr(e, d) }
+        else { e = e + 3; ds = a.substr(e, d) }
+        f[i] = ds; d = 3
+    }
+    str = f.join(","); str2 = str.substr(0, 1); if (str2 == ",") { str = str.substr(1, b + c); }
+    return str;
+}
+
+function IsNumber(val) {
+    if (parseInt(val).toString(10) == val) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+window.addEventListener('load', function() {
+    var allElements = document.getElementsByTagName('*');
+    Array.prototype.forEach.call(allElements, function(el) {
+        var includePath = el.dataset.includePath;
+        if (includePath) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    el.outerHTML = this.responseText;
+                }
+            };
+            xhttp.open('GET', includePath, true);
+            xhttp.send();
+        }
+    });
+});
+
+
+/* 상품 재고 체크 */
+var sotck_check = function (func_, data_, action_) {
+
+
+    $.ajax({
+        type: "POST",
+        url: "/stock/StockCheck",
+        data: data_,
+        dataType: "script",
+        success: function (msg) {
+            if (msg == "1") {
+                alert("상품의 재고가 없습니다.");
+                if (action_ != '') {
+                    eval(action_.selectedIndex = 0);
+                }
+                return msg;
+            }
+            else if (msg == "2") {
+                alert("주문하신 상품의 수량이 재고수량보다 많습니다.");
+                if (action_ != '') {
+                    eval(action_.selectedIndex = 0);
+                }
+                return msg;
+            }
+            else {
+                if (func_ && func_.constructor == Function) {
+                    func_();
+
+                }
+            }
+        },
+        error: function (a, b) {
+            $("#error").html(a.responseText);
+        }
+    });
+
+};
+
+//var loading = function (id_) {
+//    try {
+//        if (!id_ && loading.div) {
+//            loading.div.parentNode.removeChild(loading.div);
+//            loading.div = null;
+//            return;
+//        }
+//        var div = loading.div = loading.div || document.createElement("DIV"),
+//		elem = document.getElementById(id_),
+//		height = elem.offsetHeight + 200;
+//        div.style.marginTop = -height + "px";
+//        div.style.height = height + "px";
+//        div.className = "loading";
+//        elem.appendChild(div);
+//    }
+//    catch (e) {
+//    }
+//};
+
+//var unloading = function (id_) {
+//    if (!id_ && loading.div) {
+//        loading.div.parentNode.removeChild(loading.div);
+//        loading.div = null;
+//        return;
+//    }
+//    var div = loading.div = loading.div || document.createElement("DIV"),
+//		elem = document.getElementById(id_)
+//    div.className = "loading";
+//    /////elem.removeChild(div);
+//};
+
+/* 현재 로그인 체크 2 */
+var checkLogin = function (func_, type_, desc) {
+    $.ajax({
+        type: "POST",
+        url: "/Login/CheckLogin",
+        data: "",
+        success: function (msg) {
+            /////alert(msg);
+            ////alert(msg);
+            if (msg) {
+                if (func_ && func_.constructor == Function)
+                    func_();
+            } else {
+                location.href = desc;
+                return false;
+            }
+        }
+    });
+    return false;
+};
+
+/* 쿠폰 받기 */
+
+var get_coupon = function (couponNo, prdNo) {
+    checkLogin(function () {
+        $.ajax({
+            type: "POST",
+            url: "/Detail/GetCoupon",
+            data: "couponNo=" + couponNo + "&prdNo=" + prdNo,
+            dataType: "html",
+            success: function (msg) {
+                alert(msg);
+            },
+            error: function (a, b) {
+                $("#error").html(a.responseText);
+            }
+
+        });
+    }  , '', '/login/nindex?ret=' + document.location.pathname + document.location.search    );
+
+
+};
+
+
+var event_coupon = function (couponNo) {
+    checkLogin(function () {
+        $.ajax({
+            type: "POST",
+            url: "/Event/GetCoupon",
+            data: "couponNo=" + couponNo,
+            dataType: "html",
+            success: function (msg) {
+                alert(msg);
+            },
+            error: function (a, b) {
+                $("#error").html(a.responseText);
+            }
+
+        });
+    }, '', '/login/nindex?ret=' + document.location.pathname + document.location.search    );
+};
+
+/* 레이어 팝업 */
+function openLayerPopup(width, height, sourceId) {
+    $.openDOMWindow({
+        borderSize: 0,
+        height: height,
+        width: width,
+        positionType: 'centered',
+        windowSourceID: '#' + sourceId,
+        windowPadding: 0,
+        windowBGColor: '#FFFFFF',
+        overlayColor: '#FFFFFF',
+        overlayOpacity: '60'
+    });
+
+
+
+}
+
+
+
+/* 레이어 팝업 */
+function openLayerPopupMobile(width, height, sourceId) {
+
+
+    $("#prd_login").addClass("on");
+    $("html, body").css({ "overflow": "hidden" });
+
+
+    $.openDOMWindow({
+        borderSize: 0,
+        positionType: 'absolute', positionTop: 0,
+        /////positionType: 'centered',
+        height: height,
+        width: width,
+
+        windowSourceID: '#' + sourceId,
+        windowPadding: 0,
+        windowBGColor: '#FFFFFF',
+        overlayColor: '#FFFFFF',
+        overlayOpacity: '60'
+    });
+
+
+
+}
+
+
+/* 빈 항목 체크 */
+function isEmpty(field, error_msg) {
+    isCheckValid = false;
+    isjQuery = false;
+
+    if (typeof (field.value) == "undefined") {
+        isCheckValid = CheckValid(field.val(), false);
+        isjQuery = true;
+    }
+    else {
+        isCheckValid = CheckValid(field.value, false);
+    }
+
+    if (error_msg == "") {
+        if (!isCheckValid) {
+            if (isjQuery) {
+                if (field.attr("type") == "text" || field.attr("type") == "password")
+                    field.focus();
+            }
+            else {
+                if (field.type == "text" || field.type == "password")
+                    field.focus();
+            }
+
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    else {
+        if (!isCheckValid) {
+            alert(error_msg);
+
+            if (isjQuery) {
+                if (field.attr("type") == "text" || field.attr("type") == "password")
+                    field.focus();
+            }
+            else {
+                if (field.type == "text" || field.attr("type") == "password")
+                    field.focus();
+            }
+
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+}
+
+function CheckValid(String, space) {
+    var retvalue = false;
+    for (var i = 0; i < String.length; i++) {
+        if (space == true) {
+            if (String.charAt(i) == ' ') {
+                retvalue = true;
+                break;
+            }
+        } else {
+            if (String.charAt(i) != ' ') {
+                retvalue = true;
+                break;
+            }
+        }
+    }
+    return retvalue;
+}
+
+function commify(n) {
+    var reg = /(^[+-]?\d+)(\d{3})/;   // 정규식
+    n += '';                          // 숫자를 문자열로 변환
+
+    while (reg.test(n))
+        n = n.replace(reg, '$1' + ',' + '$2');
+
+    return n;
+};
+
+var leftBar = function () {
+    var _outerHeight = $('#outline').outerHeight();
+    var _leftOuterHeight = $('#left').outerHeight();
+    $('#left .black_1').css('height', (_outerHeight - _leftOuterHeight + 20) + 'px');
+};
+
+
+///document.domain = "stco.co.kr";
+
+
+var autoResize = function (i) {
+    try {
+        var iframeHeight = (i).contentWindow.document.body.scrollHeight;
+        (i).height = iframeHeight + 20;
+        leftBar();
+    }
+    catch (e) {
+
+        (i).height = 89224;
+    }
+};
+
+
+/* 1:1 친절상담 Q&A로 이동 */
+var toCounsel = function () {
+    checkLogin(function () {
+        location.href = '/Customer/Counsel';
+    }, "toCounsel()", "/login/nindex?ret=/Customer/Counsel");
+};
+
+/* 주문조회로 이동 */
+var toOrder = function () {
+    /////alert('1');
+    checkLogin(function () {
+        location.href = '/MyPage/newOrderList';
+
+    }, "toOrder()",  "/login/nindex?ret=/MyPage/newIndex");
+};
+
+
+var toExchange = function() {
+    checkLogin(function () {
+        location.href = '/MyPage/ExchangeRequest';
+
+    }, "toExchange()", "/login/nindex?ret=/MyPage/ExchangeRequest");
+};
+
+
+
+/* 주문조회로 이동 */
+var toMypage = function () {
+    checkLogin(function () {
+        location.href = '/MyPage/';
+
+    }, "toMypage()", "/login/nindex?ret=/MyPage/");
+};
+
+/* 최근본상품로 이동 */
+var toToDay = function () {
+    checkLogin(function () {
+        location.href = '/MyPage/ToDay';
+    }, "toToDay()", '/MyPage/ToDay');
+};
+
+/* 주문조회로 이동 */
+var toWish = function () {
+    checkLogin(function () {
+        location.href = '/MyPage/newWish';
+
+    }, "toOrder()", "/login/nindex?ret=/MyPage/newWish");
+};
+
+/* 코인화면 이동 */
+var toCoin = function () {
+    checkLogin(function () {
+        location.href = '/MyPage/newCoin';
+
+    }, "toOrder()", "/login/nindex?ret=/MyPage/newCoin");
+};
+
+
+var formReset = function (id) {
+    $("#" + id).each(function () {
+        this.reset();
+    });
+};
+
+
+(function ($) {
+    $.cookie = function (key, value, options) {
+        if (arguments.length > 1) {
+            var o = $.extend({}, $.cookie.defaults, options);
+            if (value === null || value === undefined) {
+                value = '';
+                o.expires = -1;
+            }
+            if (o.expires.constructor != Date) {
+                var today = new Date();
+                today.setDate(today.getDate() + o.expires);
+                o.expires = today;
+            }
+            // Create the cookie string
+            document.cookie =
+    key + '=' + value +
+    '; expires=' + o.expires.toUTCString() +
+    (o.path ? '; path=' + (o.path) : '') +
+    (o.domain ? '; domain=' + (o.domain) : '') +
+    (o.secure ? '; secure' : '');
+        } else {
+            if (result = new RegExp(key + "=(.*?)(?:;|$)").exec(document.cookie))
+                return decodeURIComponent(result[1]);
+            return false;
+        }
+    };
+    $.cookie.defaults = {
+        expires: 365,
+        path: '/'
+    }
+})(jQuery);
+
+/* ***************** fe_keyVisual ********************** */
+// fe_keyVisual Methods
+var fe_keyVisual_methods = {
+    init: function (options) {
+        var options = $.extend({}, $.fn.fe_keyVisual.defaults, options);
+        return this.each(function () {
+            var $frame = $(this);
+            var $item;
+            var $item_focus;
+            var lastIdx;
+            var pagerOff = options.pagerOff;
+            var pagerOn = options.pagerOn;
+            var nowIdx = 0;
+            var depNum = 10;
+            var tabIdx = 0;
+            var pagerRollState = "play";
+            var rollTimer;
+            var rollState;
+            var rollSpeed = options.rollSpeed;
+            var animationSpeed = options.animationSpeed;
+
+            $item = $frame.find(".visual").find(".briefing");
+
+            $item_focus = $frame.find(".visual").find(".briefing");
+            if ($item.length > 1) {
+                $item.css("z-index", 0);
+                $item.eq(0).css("z-index", 10);
+                $item.show();
+                lastIdx = $item.length - 1;
+
+                execution();
+                startTimer();
+                key_bind();
+            }
+            ////////////////////////////////////////////////////// attach navigation  
+            function execution() {
+                $frame.removeClass("kvText").addClass("kvGraphic");
+                var $kvController = $("<div />", { "class": "kvController" }).prependTo($($frame));
+                var listHTML = "";
+                var navHTML = "";
+                for (i = 0; i < $item.length; i++) {
+                    listHTML += '<li idx="' + i + '"><div class="over">' + ariaMsg["rolling_" + i + ""] + '</div></li>\n';
+                }
+                //navHTML = '<div class="controlButton"><button type="button" class="prev"></button> <button type="button" class="next"></button></div>\n';
+                $kvController.html(navHTML + '<ul class="paging">' + listHTML + '</ul>');
+                if ($(".kvController").find("li")) {
+                    $kvControlleri = $(".kvController").find("li");
+                    $kvControlleri.find("div").bind("click", pagerMove); //
+                }
+                $item.bind({
+                    "mouseover": function () {
+                        if (pagerRollState == "play") {
+                            clearTimer();
+                        }
+                    },
+                    "mouseout": function () {
+                        if (pagerRollState == "play") {
+                            startTimer();
+                        }
+                    }
+                });
+                $frame.find(".prev, .next").css("cursor", "pointer");
+                $frame.find(".prev").bind("click", pagerPrev);
+                $frame.find(".next").bind("click", pagerNext);
+                $frame.find(".prev, .next").bind({
+                    "mouseover": function () {
+                        if (pagerRollState == "play") {
+                            clearTimer();
+                        }
+                    },
+                    "mouseout": function () {
+                        if (pagerRollState == "play") {
+                            startTimer();
+                        }
+                    }
+                });
+                $kvControlleri.bind({
+                    "mouseover": function () {
+                        if (pagerRollState == "play") {
+                            clearTimer();
+                        }
+                    },
+                    "mouseout": function () {
+                        if (pagerRollState == "play") {
+                            startTimer();
+                        }
+                    }
+                });
+                resignIdx(nowIdx);
+            }
+
+            function resignIdx(idx) { // on-off switching
+                $kvControlleri.find("div.over").addClass('over1').removeClass('over2');
+                //$kvControlleri.find("img").attr("src", pagerOff);
+                $kvControlleri.find("div").css("cursor", "pointer");
+
+                //$kvControlleri.eq(idx).find("img").attr("src", pagerOn);
+                $kvControlleri.eq(idx).find("div.over").addClass('over2').removeClass('over1');
+                $kvControlleri.eq(idx).find("div").css("cursor", "default");
+            }
+
+            function changePage(n) {
+                var len = $item.length;
+
+                if (n < 0) {
+                    n = len - 1;
+                } else if (n >= len) {
+                    n = 0;
+                }
+
+                if (n == nowIdx) {
+                    return;
+                }
+
+                $item.stop(true, true).css("opacity", 1);
+                $item.each(function (i, o) {
+                    if (i == nowIdx) {
+                        $(o).css("z-index", 20).animate({ "opacity": 0.001 }, animationSpeed, function () {
+                            $(o).css("z-index", 0);
+
+                            if ($.browser.msie) {
+                                if ($.browser.version < 9) {
+                                    $(o).css("filter", "");
+                                }
+                            }
+                        });
+                    } else if (i == n) {
+                        $(o).css("z-index", 10);
+                        if ($.browser.msie) {
+                            if ($.browser.version < 9) {
+                                $(o).css("filter", "");
+                            }
+                        }
+                    } else {
+                        $(o).css("z-index", 0);
+                        if ($.browser.msie) {
+                            if ($.browser.version < 9) {
+                                $(o).css("filter", "");
+                            }
+                        }
+                    }
+                });
+
+                resignIdx(nowIdx = n);
+                return false;
+            }
+
+            function pagerPrev() { // click the Prev button  
+                changePage(nowIdx - 1);
+                return false;
+            }
+            function pagerNext() { // click the Next button  
+                changePage(nowIdx + 1);
+                return false;
+            }
+            ////////////////////////////////////////////////////////////////// multi-visual control 
+            function pagerMove() {
+                changePage($(this).parent().index());
+                return false;
+            }
+            /////////////////////////////////////////////////////////// auto rollring     
+            function startTimer() {
+                if (rollTimer) {
+                    clearInterval(rollTimer);
+                }
+                rollTimer = setInterval(function () { changePage(nowIdx + 1); }, rollSpeed);
+                rollState = "on";
+            }
+            function clearTimer() {
+                if (rollTimer) {
+                    clearInterval(rollTimer);
+                }
+                rollState = "off";
+            }
+            /////////////////////////////////////////////////////////// about focusing
+
+            function key_bind() {
+                $item_focus.bind("focusin", function () {
+                    //console.log("briefing focus in");
+                    clearTimer();
+                    //tabIdx = $(this).parents(".briefing").index();
+                    //changePage(tabIdx);
+                    return false;
+                });
+                $item.bind("focusout", function () {
+                    if (pagerRollState == "play") {
+                        startTimer();
+                    }
+                });
+                $frame.find(".prev, .next").bind("focusin", function () {
+                    clearTimer();
+                });
+                $frame.find(".prev, .next").bind("focusout", function () {
+                    if (pagerRollState == "play") {
+                        startTimer();
+                    }
+                });
+            }
+
+            //////////////////////////////////////////////////////////////////
+        });
+    }
+};
+// fe_keyVisual Plugin
+$.fn.fe_keyVisual = function (method) {
+    // Method calling logic
+    if (fe_keyVisual_methods[method]) {
+        return fe_keyVisual_methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+    } else if (typeof method === 'object' || !method) {
+        return fe_keyVisual_methods.init.apply(this, arguments);
+    } else {
+        $.error('Method "' + method + '" does not exist on this function');
+    }
+};
+// fe_keyVisual Defaults
+$.fn.fe_keyVisual.defaults = {
+    pagerOn: "/common/img/btn_nav_on.png",
+    pagerOff: "/common/img/btn_nav_off.png",
+    animationSpeed: 500,
+    rollSpeed: 7000
+};
+/* ***************** fe_keyVisual ********************** */
+
+/* 쿠키생성 */
+var setSaveCookie = function (name, value, expiredays) {
+    var today = new Date();
+    today.setDate(today.getDate() + expiredays);
+    document.cookie = name + "=" + escape(value) + "; path=/; expires=" + today.toGMTString() + ";"
+};
+
+var getCookie = function (name) {
+    var nameOfCookie = name + '=';
+    var x = 0;
+    while (x <= document.cookie.length) {
+        var y = (x + nameOfCookie.length);
+        if (document.cookie.substring(x, y) == nameOfCookie) {
+            if ((endOfCookie = document.cookie.indexOf(';', y)) == -1)
+                endOfCookie = document.cookie.length;
+            return unescape(document.cookie.substring(y, endOfCookie));
+        }
+        x = document.cookie.indexOf(' ', x) + 1;
+        if (x == 0)
+            break;
+    }
+    return '';
+}
+
+function PopupWindow(url, title, w, h) {
+    var left = (screen.width / 2) - (w / 2);
+    var top = (screen.height / 2) - (h / 2);
+    title = title.replace(/-/g, '');
+    return window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+}
+
+//AJAX 호출
+function udAjax(url, params, callback) {
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: params,
+        dataType: "json",
+        success: function (data, textStatus) {
+            callback(data);
+        },
+        error: function (xhr, status, error) {
+            //alert('ajax called error : ' + error);
+            alert("code:" + xhr.status + "\n" + "message:" + xhr.responseText + "\n" + "error:" + error);
+        }
+    });
+}
+
+
+//바이트계산 함수 
+function getKorStringByte(str) {
+    var retCode = 0;
+    var strLength = 0;
+
+    for (i = 0; i < str.length; i++) {
+        var code = str.charCodeAt(i)
+        var ch = str.substr(i, 1).toUpperCase()
+
+        code = parseInt(code)
+
+        if ((ch < "0" || ch > "9") && (ch < "A" || ch > "Z") && ((code > 255) || (code < 0)))
+            strLength = strLength + 2;
+        else
+            strLength = strLength + 1;
+    }
+    return strLength;
+}
+
+//카트등록폼생성
+function createDimDiv() {
+    var __alphaVal = 3;
+    var isMSIE = navigator.userAgent.indexOf("MSIE") == -1 ? false : true;
+    var isGC = navigator.userAgent.indexOf("Chrome") == -1 ? false : true;
+    var dimDiv = null;
+
+    if (top.document != null) {
+        dimDiv = top.document.createElement("div");
+        dimDiv.style.position = "absolute";
+        dimDiv.style.zIndex = "900000";
+        dimDiv.style.top = "0px";
+        dimDiv.style.left = "-" + (screen.availWidth * 2) + "px";
+        dimDiv.style.width = (screen.availWidth * 2) + "px";
+        dimDiv.style.height = ("100000") + "px";
+
+        if (isMSIE) {
+            dimDiv.style.background = "black";
+            dimDiv.style.filter = "alpha(opacity=" + __alphaVal + "0)";
+        } else {
+            if (__alphaVal > 9) __alphaVal = 9;
+            dimDiv.style.backgroundColor = "rgba(0,0,0,0." + __alphaVal + ")";
+        }
+        dimDiv.id = "goCartYesNo_BackgroundLayer";
+
+        try {
+            dimDiv.style.left = "0px";
+            top.document.body.appendChild(dimDiv);
+        }
+        catch (e) {
+        }
+    }
+    return dimDiv;
+}
+//카트등록폼생성
+function createCartDiv(itemname) {
+    var isGC = navigator.userAgent.indexOf("Chrome") == -1 ? false : true; 			// 브라우저 체크
+    var isMSIE = navigator.userAgent.indexOf("MSIE") == -1 ? false : true; 				// 브라우저 체크
+
+    var cartDiv = null;
+    var scrollTop = 0;
+    if (isGC)
+        scrollTop = top.document.body.scrollTop;
+    else if (isMSIE)
+        scrollTop = top.document.documentElement.scrollTop;
+    else {
+        scrollTop = top.document.documentElement.scrollTop;
+        if (scrollTop == 0)
+            scrollTop = top.document.body.scrollTop;
+    }
+
+    cartDiv = top.document.createElement("div");
+    cartDiv.id = "layer_basket";
+    cartDiv.innerHTML = ""
+                    + "<div id=\"layer_cart_bg\" style=\"top:100px; left:100px;\">"
+	                + "    <div class=\"layer_cart_tl\"><h1>장바구니에담기</h1></div>"
+	                + "    <div class=\"layer_cart_con\">"
+		            + "        <p><strong><span>장바구니</span>에 상품을 담았습니다.</strong></p>"
+   	                + "    </div>"
+	                + "    <div class=\"layer_cart_goods\">"
+       	            + "        <p>"
+                    + "           <span class=\"text\">" + itemname + "</span>"
+                    + "        </p>"
+                    + "    </div>"
+	                + "    <div class=\"layer_cart_foot\">"
+		            + "        <a href=\"/Cart/\"><img src=\"/Content/images/layer/layer_cart_btn_ok.jpg\" alt=\"장바구니 확인\" /></a>"
+		            + "        <a href=\"#\" onclick=\"closeCart(); location.reload() ; return false;\"><img src=\"/Content/images/layer/layer_cart_btn_cancel.jpg\" alt=\"계속쇼핑\" /></a>"
+	                + "    </div>"
+	                + "    <span class=\"layer_close\"><a href=\"#\" onclick=\"closeCart(); return false;\"><em>닫기</em></a></span>"
+                    + "</div>"
+    cartDiv.style.position = "absolute";
+    cartDiv.style.zIndex = "999999";
+    cartDiv.style.top = (scrollTop + (top.document.documentElement.clientHeight / 2) - 100) + "px";
+    cartDiv.style.left = ((top.document.documentElement.clientWidth / 2) - 175) + "px";
+    cartDiv.style.width = "319px";
+    cartDiv.style.height = "190px";
+    top.document.body.appendChild(cartDiv);
+    //alert("크롬 : " + top.document.body.scrollTop + "브라우저 상단 크기 : " + top.document.documentElement.scrollTop + "해상도 : " + screen.availHeight + " DIV 폭 : " + dimDiv.clientWidth + " DIV 높이 : " + dimDiv.clientHeight + " 현재 브라우져의 너비 : " + top.document.documentElement.clientWidth + " 현재 브라우져의 높이 : " + top.document.body.clientHeight + " 스크롤 높이 : " + top.document.documentElement.clientHeight);
+    return cartDiv;
+};
+
+
+/* 리뉴얼 추가 js */
+$(function () {
+    $("#gnb").children("ul").children("li").each(function (index, item) {
+        if ($(this).hasClass("gnb1")) {
+            $(item).hover(function () {
+                $(this).addClass("on").siblings("li").removeClass("on");
+                $(this).find(".gnb_inner1").show();
+            }, function () {
+                $(this).find(".gnb_inner1").hide();
+                $(this).removeClass("on");
+            });
+        } else {
+            $(item).hover(function () {
+                $(this).addClass("on").siblings("li").removeClass("on");
+            }, function () {
+                $(this).removeClass("on");
+            });
+        }
+    });
+});
+(function($){
+	$.fn.extend({
+		tab: function(opt){
+			var defaults = {
+				button : ".moveBtn",
+				content : ".pageIndex"
+			};
+			var extend = $.extend(defaults, opt);
+			return this.each(function(){
+				var $this = $(this);
+				var $button = $this.find(extend.button).find("li");
+				var $content = $this.find(extend.content).children("div");
+				$button.each(function(index,item){
+					$(item).find(".btn").click(function(){
+						if(!$(this).parent("li").is(".on")){
+							$(this).parent("li").addClass("on").siblings("li").removeClass("on");
+							$content.eq(index).addClass("on").siblings("div").removeClass("on");
+						};
+						return false;
+					});
+				});
+			});
+		},
+        selectbox: function(rollback){
+			return this.each(function(){
+				var $this = $(this);
+                $this.find("ul li").click(function(e){
+                    if(!$this.hasClass("open")){
+                        $this.find("li").show();
+                        $this.addClass("open");
+                    }else{
+                        $this.removeClass("open");
+                        $(this).siblings("li").removeClass("on").hide();
+                        $(this).addClass("on").show();
+                        $(this).parent("ul").siblings("input").val($(this).find("a").attr("rel"));
+                        rollback($this, $(this).find("a").attr("rel"));
+                    }
+                });
+
+                $this.mouseleave(function(i){
+                    $this.removeClass("open");
+                    $(this).find("ul li").hide();
+                    $(this).find("ul").find(".on").show();
+                });
+
+                
+			});
+		},
+        selectbox_option: function(rollback){
+			return this.each(function(){
+				var $this = $(this);
+                $this.find("ul li").click(function(e){
+                    if(!$this.hasClass("open")){
+                        var $this_sub = $(this);
+                        var prd_no = $(this).parent("ul").siblings("input").val();
+                        if(prd_no!="LOAD_OK"){
+                             //재고 가져와서 리스트에 추가하기
+                             $.ajax({
+                                type: "POST",
+                                url: "/Stock/StockConfirm",
+                                data: {prdNo : prd_no ,cnt : 1},
+                                dataType: "html",
+                                success: function (msg) {
+                                    //재고체크안함.
+                                    if(msg == "NO") return false;
+                                    if(msg.indexOf("#") > -1){
+                                        var option = msg.split("#");
+                                        for(var iCnt = 0;iCnt < option.length-1;iCnt++){
+                                            var size = option[iCnt].split(":");
+                                            if(size[1] == "3")
+                                            {
+                                                $this.find("ul").append("<li class='cnt_stock'>"+size[2]+" - " + size[0] + " - "+size[3]+"개</li>");
+                                            }
+                                        }
+                                    }
+                                    $this.find("li").show();
+                                    $this.addClass("open");
+                                    $this_sub.parent("ul").siblings("input").val("LOAD_OK");
+                                },
+                                error: function (a, b) {
+                                    $("#error").html(a.responseText);
+                                }
+                            });
+                        }else{
+                            $this.find("li").show();
+                            $this.addClass("open");
+                        }
+                    }else{
+                        $this.removeClass("open");
+                    }
+                });
+
+                $this.mouseleave(function(i){
+                    $this.removeClass("open");
+                    $(this).find("ul li").hide();
+                    $(this).find("ul").find(".on").show();
+                });
+
+                
+			});
+		},
+		moveBanner: function(opt){
+			var defaults = {
+				moveBtn : ".moveBtn",
+				pageIndex : ".pageIndex",
+				speed : "fast",
+				time : 3000,
+				auto : false,
+                height : ""
+			};
+			var extend = $.extend(defaults, opt);
+			return this.each(function(){
+				var $wrap = $(this);
+				var $btn = $wrap.find(extend.moveBtn);
+				var $bannerObj = $wrap.find(".banner");
+				var liWidth = $bannerObj.find("li").outerWidth();
+				var liLength = $bannerObj.find("li").length;
+				var cnt = 0;
+				var moveSta = true;
+				var interval;
+				if(extend.pageIndex){
+					$bannerObj.find("li").each(function(){
+						$(extend.pageIndex).append('<a href="javascript:void(0)"></a>');
+					});
+					var $page = $wrap.find(extend.pageIndex).find("a");
+					$page.eq(0).addClass("on");
+				};
+				$bannerObj.find("ul").css({"width":$bannerObj.find("ul").find("li").width() * liLength});
+				$bannerObj.css({"width":$bannerObj.find("ul").outerWidth() * 2}).append($bannerObj.find("ul").clone());
+                
+                if(opt.height !=""){
+                    $bannerObj.find("img").css({"height":opt.height});
+                };
+
+				function pageSet(){
+					if(extend.pageIndex){
+						var pageCnt = cnt;
+						if(pageCnt == liLength) pageCnt = 0;
+						$page.eq(pageCnt).addClass("on").siblings().removeClass("on");
+					};
+				};
+				function intervalSet(){
+					if(liLength!=1){
+                        cnt++;
+					    if(cnt > liLength){
+						    cnt = 1;
+						    $bannerObj.css({"left":0});
+					    };
+					    pageSet();
+					    $bannerObj.animate({"left":liWidth * -cnt},extend.speed,function(){
+						    moveSta = true;
+					    });
+                    }
+				};
+				$btn.click(function(){
+					if(moveSta){
+						moveSta = false;
+						if($(this).is(".left")){
+							cnt--;
+							if(cnt < 0){
+								cnt = liLength - 1;
+								$bannerObj.css({"left":liWidth * -liLength});
+							};
+						}else if($(this).is(".right")){
+							cnt++;
+							if(cnt > liLength){
+								cnt = 1;
+								$bannerObj.css({"left":0});
+							};
+						};
+						pageSet();
+						$bannerObj.animate({"left":liWidth * -cnt},extend.speed,function(){
+							moveSta = true;
+						});
+						return false;
+					};
+				});
+				if(extend.pageIndex){
+					$page.each(function(index,item){
+						$(item).click(function(){
+							if(moveSta){
+								moveSta = false;
+								cnt = index;
+								pageSet();
+								$bannerObj.animate({"left":liWidth * -cnt},extend.speed,function(){
+									moveSta = true;
+								});
+							};
+						});
+					});
+				};
+				if(extend.auto){
+					interval = setInterval(intervalSet,extend.time);
+					$wrap.hover(function(){
+						clearInterval(interval);
+					},function(){
+						clearInterval(interval);
+						interval = setInterval(intervalSet,extend.time);
+					});
+				};
+			});
+		},
+		ieSelect : function(opt){
+			var defaults = {
+				select : "select",
+				selectClass : "on",
+				callback : function(){}
+			};
+			return this.each(function(){
+				var $this = $(this);
+				var extend = $.extend(defaults, opt);
+				var $select = $this.find(extend.select).css({"position":"absolute","left":"-10000em","top":0});
+				var $option = $select.find("option");
+				var optionLength = $option.length;
+				$this.css({"position":"relative","left":0, "top":0});
+				var $ieSelectWrap = $(document.createElement("div")).addClass("ie_select_wrap").appendTo($this);
+				var $ieSelectBtn = $(document.createElement("a")).attr("href","#").appendTo($ieSelectWrap);
+				var $ieSelectUl = $(document.createElement("ul")).appendTo($ieSelectWrap);
+				$ieSelectBtn.text($option.filter(":selected").text() || $option.eq(0).text());
+				for(var i = 0; i < optionLength; i++){
+					$(document.createElement("li")).attr("title",$option.eq(i).val()).append($(document.createElement("a")).attr("href","#").text($option.eq(i).text())).appendTo($ieSelectUl);
+				};
+				$select.trigger("change");
+				$ieSelectBtn.click(function(e){
+					e.preventDefault();
+					if(!$ieSelectUl.is("." + extend.selectClass)){
+						$ieSelectUl.addClass(extend.selectClass);
+						$this.css({"z-index":100});
+						$ieSelectUl.css({"z-index":100});
+					}else{
+						$ieSelectUl.removeClass(extend.selectClass);
+						$this.css({"z-index":10});
+						$ieSelectUl.css({"z-index":10});
+					};
+				}).blur(function(){
+					setTimeout(function(){
+						$ieSelectUl.removeClass(extend.selectClass);
+					},100);
+				});
+//				$ieSelectUl.find("li").each(function(index,item){
+//					$(item).find("a").click(function(e){
+//						e.preventDefault();
+//						$ieSelectBtn.text($(this).text()).removeClass(extend.selectClass);
+//						$select.val($(item).attr("title")).trigger("change");
+//						extend.callback($this,$(item).attr("title"));
+//					});
+//				});
+                $ieSelectUl.find("li").each(function(index,item){
+                      $(item).find("a").click(function(e){
+                      e.preventDefault();
+                      $ieSelectBtn.text($(this).text());
+                      $ieSelectBtn.removeClass(extend.selectClass);
+                      $select.val($(item).attr("title")).trigger("change");
+                      extend.callback($this,$(item).attr("title"));
+                   });
+                });
+
+
+			});
+		},
+		alert: function(opt){ // 2015-06-10
+			var defaults = {
+				titmsg : "", // string
+				submsg : "", // string
+				callback : null // null or function
+			};
+			return this.each(function(){
+
+				var extend = $.extend(defaults, opt);
+				var $this = $(this);
+				var html = '<div id="alert" class="alert">';
+				html += '<div class="alert_inner">';
+				html += '<p class="alert_tit">' + extend.titmsg + '</p>';
+				html += '<div class="alert_bottom">';
+				html += '<p class="alert_msg">' + extend.submsg + '</p>';
+				html += '<div class="btn_area">';
+				html += '<a href="#" class="complete_btn"  onclick="parent.location.reload();" ><img src="/Content/new/images/mypage/mypage_lbtn3.gif" alt="확인" /></a>';
+				html += '</div>';
+				html += '</div>';
+				html += '</div>';
+				html += '<a href="#" class="complete_btn close"   onclick="parent.location.reload();"><img src="/Content/new/images/mypage/mypage_close_btn.gif" alt="" /></a>';
+				html += '</div>';
+				$this.after(html);
+				$("#alert").css({"margin-top":-$("#alert").outerHeight() / 2});
+				($("#my_layer_bg")) ? $("#my_layer_bg").css({"z-index":900}) : $this.after("<div id='my_layer_bg' style='z-index:900'></div>");
+				/*
+                $("#alert").find(".complete_btn").click(function(e){
+					e.preventDefault();
+					if(extend.callback == null){
+						$("#alert").remove();
+						$("#my_layer_bg").css({"z-index":100});
+					}else{
+						extend.callback();
+					};
+				});*/
+
+			});
+		},
+	});
+})(jQuery);
+
+/* 현종추가 */
+
+//타이머
+(function ($) {
+    jQuery.timer = function (interval, callback, options) {
+        // Create options for the default reset value
+        var options = jQuery.extend({ reset: 500 }, options);
+        var interval = interval || options.reset;
+
+        if (!callback) { return false; }
+
+        var Timer = function (interval, callback, disabled) {
+            // Only used by internal code to call the callback
+            this.internalCallback = function () { callback(self); };
+
+            // Clears any timers
+            this.stop = function () {
+                if (this.state === 1 && this.id) {
+                    clearInterval(self.id);
+                    this.state = 0;
+                    return true;
+                }
+                return false;
+            };
+            // Resets timers to a new time
+            this.reset = function (time) {
+                if (self.id) { clearInterval(self.id); }
+                var time = time || options.reset;
+                this.id = setInterval($.proxy(this.internalCallback, this), time);
+                this.state = 1;
+                return true;
+            };
+            // Pause a timer.
+            this.pause = function () {
+                if (self.id && this.state === 1) {
+                    clearInterval(this.id);
+                    this.state = 2;
+                    return true;
+                }
+                return false;
+            };
+            // Resumes a paused timer.
+            this.resume = function () {
+                if (this.state === 2) {
+                    this.state = 1;
+                    this.id = setInterval($.proxy(this.internalCallback, this), this.interval);
+                    return true;
+                }
+                return false;
+            };
+
+            // Set the interval time again
+            this.interval = interval;
+
+            // Set the timer, if enabled
+            if (!disabled) {
+                this.id = setInterval($.proxy(this.internalCallback, this), this.interval);
+                this.state = 1;
+            }
+
+            var self = this;
+        };
+
+        // Create a new timer object
+        return new Timer(interval, callback, options.disabled);
+    };
+})(jQuery);
+
+
+//이전페이지로 이동
+function goToBack() {
+    history.back(-1);
+    return false;
+}
+
+//위시추가
+$(function () {
+    $(document).on("click","[name=prdAddWish]",function () {
+        var $this = $(this);
+        if ($(this).hasClass("on")) {
+            alert("위시리스트로 이미 추가된상품입니다.");
+            return false;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/Cart/Wish",
+            data: "prdNo=" + $(this).attr("rel"),
+            dataType: "html",
+            success: function (msg) {
+                alert(msg);
+                if (msg == "위시리스트에 상품이 담겼습니다.") {
+                    var cnt = $("#leftWishCnt").text();
+                    cnt = cnt.replace("(", "").replace(")", "");
+                    $("#leftWishCnt").text("(" + (parseInt(cnt) + 1) + ")");
+                    $this.addClass("on");
+                }
+            },
+            error: function (a, b) {
+                $("#error").html(a.responseText);
+            }
+        });
+    });
+
+    $(".prd_c_select").selectbox_option(function (obj, text) { });
+
+  
+});
+
+            
+//즐겨찾기 추가
+function addFavorite(){
+    //var title = document.title; //현재 보고 있는 페이지의 Title
+    //var url = location.href; //현재 보고 있는 페이지의 Url
+    
+    var title = "STCO"; //현재 보고 있는 페이지의 Title
+    var url = "http://www.stco.co.kr"; //현재 보고 있는 페이지의 Url
+
+    if(window.sidebar && window.sidebar.addPanel)
+    {
+        window.sidebar.addPanel(title, url,"");
+    }else if(window.opera && window.print)
+    {
+        var elem = document.createElement('a'); 
+        elem.setAttribute('href',url); 
+        elem.setAttribute('title',title); 
+        elem.setAttribute('rel','sidebar'); 
+        elem.click();
+    }else if(document.all){//msie
+        window.external.AddFavorite( url, title);
+    }else{
+        alert("해당브라우저는 즐겨찾기 추가기능이 지원되지 않습니다.\n\n수동으로 즐겨찾기에 추가해주세요.");
+        return true;
+    }
+}
+
+//탑띠배너 닫기
+function closeTopBanner() {
+    var today = new Date();
+    var cExpire = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 23, 59, 59);
+    $.cookie('header_top_close', "close", { expires: cExpire, secure: 0 });
+    $('#header_top').slideUp();
+    //위치 변경처리
+    var wrapHeight = parseInt($("#header_wrap").css("height").replace("px"));
+    var height = parseInt($("#header_top").css("height").replace("px")) ;
+    $("#left_aside").animate({ top: "-=" + height + "px"}, 400 );
+    $("#right_aside").animate({ top: "-=" + height + "px" }, 400);
+
+    //탑배너 세션 설정
+    $.ajax({
+        type: "POST",
+        url: "/shared/TopBannerClose",
+        data: {},
+        dataType: "script",
+        success: function (msg) {
+            alert(msg);
+        },
+        error: function (a, b) {  }
+    });
+}
+
+// 숫자 타입에서 쓸 수 있도록 format() 함수 추가
+Number.prototype.format = function () {
+    if (this == 0) return 0;
+
+    var reg = /(^[+-]?\d+)(\d{3})/;
+    var n = (this + '');
+
+    while (reg.test(n)) n = n.replace(reg, '$1' + ',' + '$2');
+
+    return n;
+};
+
+// 문자열 타입에서 쓸 수 있도록 format() 함수 추가
+String.prototype.format = function () {
+    var num = parseFloat(this);
+    if (isNaN(num)) return "0";
+
+    return num.format();
+};
+

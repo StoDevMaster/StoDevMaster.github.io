@@ -1,0 +1,183 @@
+
+body {font-family: 'Poppins', 'Noto Sans KR', sans-serif;font-size:14px; color:#666;font-weight: 300;}
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {margin:0;padding:0;border:0;box-sizing:border-box}
+ul, li {list-style:none}
+em {font-style:normal}
+a {color:#262525;text-decoration:none}
+html.scroll-off {overflow:hidden}
+
+.review_container.mobile {width:100%;max-width:1024px;padding:0;margin:94px auto 0;overflow-x:hidden}
+.review_container.mobile .titleBox {display:block;margin-bottom:30px;}
+.review_container.mobile .titleBox h2 {width:100%;text-align:center;padding-bottom:10px;border-bottom:1px solid #262525;font-size:3.75rem;font-weight:700;color:#262525;letter-spacing:-0.25px}
+.review_container.mobile .titleBox .selectBox {display:flex;margin-top:30px;padding:0 5px}
+.review_container.mobile .titleBox .selectBox select {width:calc(50% - 5px);height:40px;padding:0 33px 0 20px;border:1px solid #b9b9b9;color:#b9b9b9;font-size:15px;font-family:'Noto Sans KR', sans-serif;letter-spacing:-0.25px;background:url(../img/ico_select.png) no-repeat center right 15px;appearance:none;-webkit-appearance:none;}
+.review_container.mobile .titleBox .selectBox select + select {margin-left:10px}
+.review_container.mobile .titleBox .selectBox select.type2 {font-family:'Poppins', sans-serif}
+.review_container.mobile .photoBox {padding:0 5px}
+.review_container.mobile .photoBox > ul {display:flex;flex-wrap: wrap;}
+.review_container.mobile .photoBox > ul > li {display:flex;flex-direction: column;width:calc(100%/2 - 5px);margin:0 10px 24px 0;border:1px solid #b0b0b0;cursor:pointer}
+.review_container.mobile .photoBox > ul > li:nth-child(2n) {margin-right:0}
+.review_container.mobile .photoBox > ul > li .imgBox {position:relative;width:100%;height:0;padding-bottom:113%;border-bottom:1px solid #b0b0b0}
+.review_container.mobile .photoBox > ul > li .imgBox img {position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}
+.review_container.mobile .photoBox > ul > li .txtBox {width:100%;height:auto;padding:22px 14px}
+.review_container.mobile .photoBox > ul > li .txtBox .idBox {display: flex;justify-content: space-between;align-items: flex-start;}
+.review_container.mobile .photoBox > ul > li .txtBox .idBox .id {font-size:1.2rem;line-height:1.428rem;color:#262525}
+.review_container.mobile .photoBox > ul > li .txtBox .idBox .date {font-size:0.928rem;line-height:1.428rem;color:#a1a1a1;font-weight:300}
+.review_container.mobile .photoBox > ul > li .txtBox p {margin-top:10px;width:100%;height:3.75rem;font-size:1.357rem;line-height:1.7857rem;color:#6e6e6e;font-weight:400;letter-spacing:-1px;font-family:'Noto Sans KR', sans-serif;overflow:hidden;text-overflow:ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
+.review_container.mobile .photoBox > ul > li .txtBox .sizetip {display:inline-block;margin-top:10px;font-size:1rem;line-height:1.57rem;color:#a1a1a1;font-weight:400;letter-spacing:-0.35px;font-family:'Noto Sans KR', sans-serif;}
+.review_container.mobile .gradeBox {display:flex;width:100%;padding:10px 10px 7px;background-color:#f8f8f8}
+.review_container.mobile .gradeBox .img {margin-right:12px}
+.review_container.mobile .gradeBox .img img {width:3.9rem;height:3.9rem;object-fit:cover}
+.review_container.mobile .gradeBox dl {margin-top:7px;display:block;width:calc(100% - 40px)}
+.review_container.mobile .gradeBox dl dt {width:calc(100% - 10px);font-size:1.07rem;line-height:1.42857rem;color:#262525;font-weight:500;letter-spacing:-0.3px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.review_container.mobile .gradeBox dl .rnum {float:left;display:inline-block;margin-right:18px;font-size:0.928rem;line-height:1.714rem;color:#262525;font-weight:500}
+.review_container.mobile .gradeBar {position:relative;display:inline-block;padding-left:2rem;margin-top:0.357rem}
+.review_container.mobile .gradeBar:before {content:'평점';display:block;position:absolute;top:0;left:0;width:fit-content;font-size:0.92857rem;line-height:1;color:#262525;font-weight:500}
+.review_container.mobile .gradeBar ul {display:flex}
+.review_container.mobile .gradeBar ul li {width:12px;height:11px;background:url(../img/ico_star3.png) no-repeat 0 0;background-size:100%}
+.review_container.mobile .gradeBar ul li.half {background-image:url(../img/ico_star4.png)}
+.review_container.mobile .gradeBar ul li.empty {background-image:url(../img/ico_star5.png)}
+.review_container.mobile .gradeBar ul li + li {margin-left:0.2142857rem}
+.review_container.mobile .gradeBar.type2 {padding-left:0}
+.review_container.mobile .gradeBar.type2:before {display:none}
+.review_container.mobile .gradeBar.type2 ul li {width:21px;height:19px;}
+.review_container.mobile .tit .gradeBar.type2 ul li {height:13px;}
+.review_container.mobile .gradeBar.type2 ul li + li {margin-left:0.5rem}
+.review_container.mobile .textReview {margin:60px 0 80px}
+.review_container.mobile .textBox {margin-bottom:35px}
+.review_container.mobile .textBox > ul > li {position:relative;padding:0;border-top:1px solid #dedede}
+.review_container.mobile .textBox > ul > li:last-child {border-bottom:1px solid #dedede}
+.review_container.mobile .textBox > ul > li .inner {padding:20px;background-color:#f8f8f8}
+.review_container.mobile .textBox > ul > li .grade {display:flex;justify-content: space-between;padding-right:38px}
+.review_container.mobile .textBox > ul > li .infoBox {display:flex;align-items:center;margin-top:24px}
+.review_container.mobile .textBox > ul > li .infoBox dl {display:block;width:100%}
+.review_container.mobile .textBox > ul > li .infoBox dt {margin-bottom:5px;width:calc(100% - 7.142857rem);font-size:1.5rem;line-height:1.5rem;color:#262525;font-weight:500;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.review_container.mobile .textBox > ul > li .infoBox dd {font-size:1.2857rem;line-height:24px;color:#262525;font-weight:500;}
+.review_container.mobile .textBox > ul > li .infoBox .img {margin-right:12px}
+.review_container.mobile .textBox > ul > li .infoBox .img img {width:4.8rem;height:4.8rem;object-fit:cover}
+.review_container.mobile .textBox > ul > li .detailBox {padding:20px}
+.review_container.mobile .textBox > ul > li .detailBox dl {padding-bottom:15px;border-bottom:1px solid #dedede;margin-top:20px;}
+.review_container.mobile .textBox > ul > li .detailBox dl:first-child {margin-top:0;}
+.review_container.mobile .textBox > ul > li .detailBox dt {display:flex;justify-content: space-between;margin-bottom:5px;font-size:1.357rem;line-height:2.2857rem;color:#a1a1a1}
+.review_container.mobile .textBox > ul > li .detailBox dt strong {color:#262525;font-weight:600;font-family: 'Poppins'}
+.review_container.mobile .textBox > ul > li .detailBox dt .date {font-size:1.1428rem;color:#3e3e3e;font-family: 'Poppins'}
+.review_container.mobile .textBox > ul > li .detailBox dd {font-size:1.2857rem;line-height:2.2857rem;color:#a1a1a1;position:relative;}
+.review_container.mobile .textBox > ul > li .detailBox dd + dd {margin-top:5px}
+.review_container.mobile .textBox > ul > li .txtBox {width:100%;max-height:4.1rem;font-size:1.4285rem;line-height:1.92857rem;color:#262525;font-weight:400;letter-spacing:-0.35px;font-family:'Noto Sans KR', sans-serif;overflow:hidden;text-overflow:ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
+.review_container.mobile .textBox > ul > li .txtBox.active {max-height:100%;display:block}
+.review_container.mobile .paging {display:flex;justify-content: center;}
+.review_container.mobile .paging a {display:block;width:34px;height:34px;text-decoration:none;text-align:center;line-height:34px;font-size:1.07rem;color:#7e7e7e;font-weight:500}
+.review_container.mobile .paging a.active {background-color:#efefef}
+.review_container.mobile .paging a.prev {font-size:0;background:url(../img/btn_arrow.png) no-repeat center center;background-size:7px;transform:rotate(-180deg)}
+.review_container.mobile .paging a.next {font-size:0;background:url(../img/btn_arrow.png) no-repeat center center;background-size:7px;}
+.review_container.mobile .paging a + a {margin-left:15px}
+.review_container.mobile .textBox .btnMore {position:relative;display:inline-block;padding-right:16px;margin-top:20px;font-size:1.2857rem;line-height:22px;color:#9a9a9a;font-weight:500}
+.review_container.mobile .textBox .btnMore:after {content:'';display:block;position:absolute;width:8px;height:5px;top:50%;right:0;background:url(../img/ico_arrow.png) no-repeat right center;background-size:8px;transform:translateY(-50%)}
+.review_container.mobile .textBox .btnMore.active:after {transform:translateY(-50%) rotate(-180deg)}
+.review_container.mobile .textBox .blockBox {display:flex;position:absolute;right:0;bottom:0;line-height:1}
+.review_container.mobile .textBox .blockBox:before {content:'|';display:block;position:absolute;top:1px;left:50%;font-size:1rem;color:#bdbdbd}
+.review_container.mobile .textBox .blockBox li + li {margin-left:28px}
+.review_container.mobile .textBox .blockBox a {font-size:1.2857rem;font-weight:400;color:#bdbdbd}
+.review_container.mobile .textBox .likeBox {display:flex;margin-top:15px;line-height:1}
+.review_container.mobile .textBox .likeBox li {position:relative}
+.review_container.mobile .textBox .likeBox li + li {margin-left:8px}
+.review_container.mobile .textBox .likeBox li a {display:block;padding-left:20px;font-size:1.2857rem;color:#a1a1a1;font-weight:500;line-height:15px}
+.review_container.mobile .textBox .likeBox li a:before {content:'';display:block;position:absolute;left:0;top:0;width:14px;height:15px;background:url(../img/ico_like.png) no-repeat 0 0;background-size:14px}
+.review_container.mobile .textBox .likeBox li.like.no a:before {top:0;background-image:url(../img/ico_liken.png)}
+.review_container.mobile .textBox .likeBox li.on a {color:#14161a}
+.review_container.mobile .textBox .likeBox li.on a:before {background-image:url(../img/ico_like_on.png)}
+.review_container.mobile .textBox .likeBox li.no.on a:before {background-image:url(../img/ico_liken_on.png)}
+.review_container.mobile .btnBox {margin:20px auto 10rem;width:fit-content}
+.review_container.mobile .btnBox .btnView {display:block;width:20rem;height:4.2857rem;text-indent:-1rem;line-height:4.2857rem;text-align:center;font-size:1.42857rem;color:#fff;background:#262525 url(../img/ico_more.png) no-repeat center left calc(50% + 3rem)}
+
+/*popup*/
+.layer-pop {display: none;overflow-x: hidden;position: fixed;top: 0;left: 0;z-index: 99;width: 100%;height: 100%;padding:0;box-sizing: border-box;}
+.layer-pop.on {display: block;}
+.layer-pop-inner {position: relative;/*margin:64 auto;*/width:100%;max-width:1024px;padding: 0;background-color: #fff;box-sizing: border-box;}
+.popHeader {display:flex;width:100%; top: 0; z-index:999; position:fixed; height:64px;background-color:#fff;border-bottom:2px solid #000;align-items: center;}
+.popHeader h1 {margin-left:26px;width:fit-content;background-color:#fff;font-size: 2.188rem;color:#000;font-family: 'Poppins', sans-serif;font-weight:500}
+.popCon {padding:0;outline:none;height:100%}
+.popCon .conInner {position:relative;}
+.popCon .conInner .imgBox {position:relative;width:100%;height:0;padding-bottom:100%}
+.popCon .conInner .imgBox img {position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}
+.popCon .conInner .infoBox {padding:30px 28px 0;width:100%;background-color:#f8f8f8}
+.popCon .conInner .gradeBox {display:flex;width:100%;padding:10px 10px 7px;background-color:#f8f8f8}
+.popCon .conInner .gradeBox .img {margin-right:12px}
+.popCon .conInner .gradeBox .img img {width:6.2857rem;height:6.2857rem;object-fit:cover}
+.popCon .conInner .gradeBox dl {margin-top:7px;display:block;width:calc(100% - 40px)}
+.popCon .conInner .gradeBox dl dt {width:calc(100% - 40px);font-size:1.5rem;line-height:2.8rem;color:#262525;font-weight:500;letter-spacing:-0.3px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.popCon .conInner .gradeBox dl .rnum {float:left;display:inline-block;margin-right:18px;font-size:1.42857rem;line-height:1.714rem;color:#262525;font-weight:500}
+.popCon .conInner .infoBox .grade {display: flex;justify-content: space-between;align-items: center;}
+.popCon .conInner .infoBox .gradeBar.type2 ul li {width:16px}
+.popCon .conInner .infoBox .gradeBar.type2 ul li + li {margin-left:5px}
+.popCon .conInner .infoBox .date {display:inline-block;font-size:13px;color:#a1a1a1}
+.popCon .conInner .infoBox .txtBox {width:100%;padding:15px 0 38px}
+.popCon .conInner .infoBox .txtBox .idBox {font-size:1.92857rem;color:#a1a1a1;border:1px solid #d8d8d8;padding:15px 18px}
+.popCon .conInner .infoBox .txtBox .idBox .id {font-size:1.92857rem;line-height:24px;color:#262525}
+.popCon .conInner .infoBox .txtBox .idBox .date {font-size:1.92857rem;color:#a1a1a1;font-weight:300}
+.popCon .conInner .infoBox .txtBox p {margin-top:20px;width:100%;font-size:1.7857rem;color:#6e6e6e;font-weight:400;letter-spacing:-1px;word-break:break-all;font-family:'Noto Sans KR', sans-serif;}
+.popCon .conInner .infoBox .txtBox .sizetip {display:inline-block;font-size:1.57rem;line-height:22px;color:#a1a1a1;font-weight:400;font-family:'Noto Sans KR', sans-serif;}
+.popCon .conInner .gradeBox {border-top:1px solid #d8d8d8;border-bottom:1px solid #d8d8d8;background-color:transparent;padding: 10px 27px;}
+.popCon .conInner .infoBox .blockBox {display:flex;position:relative}
+.popCon .conInner .infoBox .blockBox:before {content:'|';display:block;position:absolute;top:50%;left:50%;font-size:12px;color:#bdbdbd;transform:translateY(-50%)}
+.popCon .conInner .infoBox .blockBox li + li {margin-left:28px}
+.popCon .conInner .infoBox .blockBox a {font-size:1.2857rem;font-weight:400;color:#bdbdbd}
+.popCon .conInner .infoBox .blockBox a:hover {color:#161618}
+.popCon .conInner .infoBox .checkBox {display:flex;justify-content: space-between;align-items: center;margin-top:18px;padding-bottom:40px}
+.popCon .conInner .infoBox .likeBox {display:flex;}
+.popCon .conInner .infoBox .likeBox li {position:relative}
+.popCon .conInner .infoBox .likeBox li + li {margin-left:8px}
+.popCon .conInner .infoBox .likeBox li a {display:block;padding-left:20px;font-size:13px;color:#a1a1a1;font-weight:500}
+.popCon .conInner .infoBox .likeBox li a:hover {color:#161618;}
+.popCon .conInner .infoBox .likeBox li a:before {content:'';display:block;position:absolute;left:0;top:0;width:14px;height:15px;background:url(../img/detail/ico_like.png) no-repeat 0 0;background-size:14px}
+.popCon .conInner .infoBox .likeBox li.like.no a:before {top:3px;background-image:url(../img/detail/ico_liken.png)}
+.popCon .conInner .infoBox .likeBox li.on a {color:#14161a}
+.popCon .conInner .infoBox .likeBox li.on a:before {background-image:url(../img/detail/ico_like_on.png)}
+.popCon .conInner .infoBox .likeBox li.no.on a:before {background-image:url(../img/detail/ico_liken_on.png)}
+/*#close {position:absolute;top:26px;right:20px;width:38px;height:38px;border:none;font-size:0;cursor:pointer;background:url(../img/detail/btn_close.png) no-repeat 0 0;background-size:100%}
+*/
+#close1 {
+    position: fixed;
+    top: 15px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    font-size: 0;
+    z-index:999;
+    cursor: pointer;
+    background: url(/Areas/Mobile/Common/images/back.png) no-repeat 0 0;
+    background-size: 100%
+}
+
+
+@media (max-width: 768px) {
+	html, body{
+        font-size: 12px !important;
+    }
+}
+
+@media (max-width: 420px) {
+	html, body{
+        font-size: 10px !important;
+    }
+.review_container.mobile .gradeBox dl .rnum {margin-right:8px}
+.review_container.mobile .gradeBar {padding-left:20px;}
+}
+
+@media (max-width: 380px) {
+.review_container.mobile .gradeBox dl .rnum {margin-right:5px}
+.review_container.mobile .gradeBar {width:70px;margin-top:0.3rem}
+}
+
+@media (max-width: 320px) {
+	html, body{
+        font-size: 8px !important;
+    }
+.review_container.mobile .gradeBox .img {margin-right:5px}
+.review_container.mobile .gradeBox dl {margin-top: 3px;width: calc(100% - 20px);}
+.review_container.mobile .gradeBar {width:60px}
+.popHeader h1 {font-size:25px;}
+}
