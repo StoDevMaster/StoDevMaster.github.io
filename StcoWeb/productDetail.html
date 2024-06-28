@@ -1,1 +1,1847 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--2021.03.18 - 오동환.페이스북 광고 메타 테그 추가-->
+    <meta name="facebook-domain-verification" content="fptagknbb3lq0am8zyixobjo2spnce" />
+    <link rel="shortcut icon" href="https://www.stco.co.kr/stco_icon.ico" type="image/x-icon" />
+    <link rel="icon" href="https://www.stco.co.kr/stco_icon.ico" type="image/x-icon" />
 
+    <!--2016-09-06 modified by 민경준 타이틀 변경 stco -> STCO FORMAL SPA -->
+
+    <meta name="naver-site-verification" content="0566572fbf4975341b84a6f6f543b2b2cbe9b1c3" />
+    <meta name="google-site-verification" content="WhH574FqgHnEZdHjGAqXtUUscueVK0Ghqk1BVmKAMPc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>STCO Modern Workwear</title>
+
+    <meta name="description" content="일하는 사람들을 위한 모던 워크웨어 STCO. Work Life Style의 변화에 맞춘, 일할 때 입는 옷의 변화를 연구합니다." />
+    <meta name="robots" content="INDEX, FOLLOW" />
+    <meta name="NaverBot" content="All" />
+    <meta name="NaverBot" content="index,follow" />
+    <meta name="Yeti" content="All" />
+    <meta name="Yeti" content="index,follow" />
+    <meta name="Googlebot" content="index,follow" />
+    <meta name="googlebot-image" content="index,follow" />
+    <meta name="author" content="stco, Inc." />
+    <meta name="twitter:title" content="STCO Modern Workwear " />
+    <meta name="twitter:description" content="일하는 사람들을 위한 모던 워크웨어 STCO. Work Life Style의 변화에 맞춘, 일할 때 입는 옷의 변화를 연구합니다." />
+    <meta property="og:title" content="STCO Modern Workwear" />
+    <meta property="og:image" content="http://webimg.codigallery.com/Images/og_logo.png" />
+    <meta property="og:description" content="일하는 사람들을 위한 모던 워크웨어 STCO. Work Life Style의 변화에 맞춘, 일할 때 입는 옷의 변화를 연구합니다." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="STCO Modern Workwear" />
+
+    <meta property="og:url" content=" https://www.stco.co.kr/" />
+    <link rel="canonical" href=" https://www.stco.co.kr/" />
+    <link rel="alternate" href=" https://m.stco.co.kr/" media="only screen and (max-width: 640px)" />
+
+    <link rel="stylesheet" type="text/css" href="Content/201608/common/css/old.css?20190920" />
+    <link rel="stylesheet" type="text/css" href="Content/201608/common/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="Content/201608/common/css/index_201608.css" />
+    <link rel="stylesheet" type="text/css" href="Content/201701/common/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="Content/201701/common/css/common.css?20190920" />
+    <link rel="stylesheet" type="text/css" href="Content/201707/css/common.css?20190920" />
+    <link rel="stylesheet" type="text/css" href="Content/201707/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="Content/201707/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="Content/201908/css/stco.css?20191011" />
+    <link rel="stylesheet" type="text/css" href="Content/201908/css/slick.css" />
+
+    <script type="text/javascript" src="Content/202009/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="Content/201608/common/js/old.js"></script>
+    <script type="text/javascript" src="Content/201608/common/js/jquery.lazyload.js"></script>
+    <script type="text/javascript" src="Content/201608/common/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="Content/201701/common/js/common.js"></script>
+    <script type="text/javascript" src="Content/201707/js/swiper-3.4.2.jquery.min.js"></script>
+    <script type="text/javascript" src="Content/202009/js/slick.js"></script>
+    <script type="text/javascript" src="Content/202009/js/stco.js"></script>
+  </head>
+  <!-- 구글 아날리스틱 END -->
+
+  <script type="text/javascript">
+
+    var topBannerCheck = "True";
+    var url = "https://www.stco.co.kr/detail/index/SSJTC54SET";
+
+    var searchWord = '';
+    var searchURL = '';
+
+    var banner = 'False';
+
+    $(function () {
+        if (url.toLowerCase().indexOf("/login/nindex") > 0 || url.toLowerCase().indexOf("/join") > 0 || banner == "False") {
+            $('body').addClass('top_banner_off');
+            $('.seach_box').css("top", "87px");
+            $('.all_menu_top').css("top", "87px");
+        }
+
+        if (url.toLowerCase().indexOf("/login/nindex") > 0 || url.toLowerCase().indexOf("/join") > 0 || banner == "False") {
+            $('body').addClass('top_banner_off');
+            $('.seach_box').css("top", "87px");
+            // 210421 박진웅 브랜드 메뉴 추가
+            $('.all_menu_top2').css("top", "87px");
+        }
+
+        if (topBannerCheck == "True" || banner == "False") {
+            $('.seach_box').css("top", "87px");
+            $('.all_menu_top').css("top", "87px");
+            $('.btn_top').fadeOut()
+        }
+        else {
+            $('.seach_box').css("top", "177px");
+            $('.all_menu_top').css("top", "177px");
+            $('.btn_top').fadeOut()
+        }
+
+        if (topBannerCheck == "True" || banner == "False") {
+            $('.seach_box').css("top", "87px");
+            $('.all_menu_top2').css("top", "87px");
+            $('.btn_top').fadeOut()
+        }
+        else {
+            $('.seach_box').css("top", "177px");
+            $('.all_menu_top2').css("top", "177px");
+            $('.btn_top').fadeOut()
+        }
+
+        if ((searchWord != "") && (searchURL != "")) {
+
+            var searchWordArr = searchWord.slice(0, -1).split(',');
+            var searchURLArr = searchURL.slice(0, -1).split(',');
+            var time = searchWordArr.length - 1;
+
+            $("#searchWord").attr("placeholder", searchWordArr[time - 1]);
+            var searchTimmer;
+            try {
+                //3초에 한번씩 문구 변경.
+                searchTimmer = $.timer(3000, function () {
+
+                    $("#searchWord").attr("placeholder", searchWordArr[time]);
+                    $(".searchUrl").val(searchURLArr[time]);
+
+                    time--;
+                    if (time < 0) {
+                        time = searchWordArr.length - 1;
+                    }
+
+                });
+            }
+            catch (e) {
+            }
+        }
+        else {
+            $("#searchWord").attr("placeholder", "검색어를 입력하세요!");
+        }
+
+    });
+
+    function Login(gubun) {
+        if (gubun == 'in') {
+            if (document.location.pathname == "/login/nindex") {
+                location.reload();
+            }
+            else {
+                location.href = "/login/nindex?ret=" + document.location.pathname + document.location.search;
+                return false;
+            }
+        }
+        else {
+            // 2020-02-18 - 비긴스크립트 삽입
+            bigin.user("logout");
+            location.href = "/Login/LogOut";
+        }
+    }
+
+    $(window).on("mousewheel DOMMouseScroll", function (event) {
+        if ($('body').hasClass('top_banner_off')) { var topvl = 10 }
+        else { var topvl = 90 }
+
+        if (topBannerCheck == "True" || banner == "False") {
+            $('body').addClass('top_banner_off');
+            $(window).resize();
+
+            if ($('body , html').scrollTop() > topvl) {
+                if (!$('body').hasClass('fixed_top')) {
+                    //$(window).resize();
+                    $('body').addClass('fixed_top');
+                }
+
+                $('.seach_box').css("top", "77px");
+                $('.all_menu_top').css("top", "77px");
+                $('.all_menu_top2').css("top", "77px");
+                $('.btn_top').fadeIn();
+            } else {
+                $('body').removeClass('fixed_top');
+                $('.seach_box').css("top", "87px");
+                $('.all_menu_top').css("top", "87px");
+                $('.all_menu_top2').css("top", "87px");
+                $('.btn_top').fadeOut();
+            }
+
+        }
+        else {
+            if ($('body , html').scrollTop() >= topvl) {
+
+                //$(window).resize();
+                $('body').addClass('fixed_top');
+
+                // console.log($('body , html').scrollTop());
+                $('.seach_box').css("top", "77px");
+                $('.all_menu_top').css("top", "77px");
+                $('.all_menu_top2').css("top", "77px");
+                $('.btn_top').fadeIn();
+            } else {
+                $('body').removeClass('fixed_top');
+                $('.seach_box').css("top", "177px");
+                $('.all_menu_top').css("top", "177px");
+                $('.all_menu_top2').css("top", "177px");
+                $('.btn_top').fadeOut();
+            }
+        }
+    });
+
+    //로그인확인후 마이페이지 이동
+    var toMypage = function () {
+        checkLogin(function () {
+            location.href = '/NMyPage/';
+        }, "toMypage()", "/login/nindex?ret=/NMyPage/");
+    };
+
+    var checkLogin = function (func_, type_, desc) {
+        $.ajax({
+            type: "POST",
+            url: "/Login/CheckLogin",
+            data: "",
+            success: function (msg) {
+                if (msg) {
+                    if (func_ && func_.constructor == Function)
+                        func_();
+                } else {
+                    location.href = desc;
+                    return false;
+                }
+            }
+        });
+        return false;
+    };
+
+    //검색
+    var searchProduct = function () {
+        var searchWord = $('#searchWord').val();
+
+        if (searchWord == "" || searchWord == null) {
+            location.href = $('.searchUrl').val();
+        } else {
+            location.href = "/Search?searchWord=" + searchWord.toUpperCase();
+        }
+    }
+
+
+    $("#searchWord").keydown(function (key) {
+        if (key.keyCode == 13) {
+            searchProduct();
+        }
+    });
+
+
+    $('.top_banner_wrap .top_banner_close').click(function () {
+        $('body').addClass('top_banner_off');
+        $('.seach_box').css("top", "87px");
+        $('.all_menu_top').css("top", "87px");
+        topBannerCheck = "True";
+        $(window).resize();
+
+        //탑배너 세션 설정
+        $.ajax({
+            type: "POST",
+            url: "/shared/TopBannerClose",
+            data: "",
+            success: function (msg) {
+                //location.reload();
+            },
+            error: function (a, b) { }
+        });
+    })
+
+    $('.seach').click(function () {
+        $('body').toggleClass('seach_on')
+        $('.all_menu_top').removeClass('on')
+        $('.all_menu_top2').removeClass('on')
+        var menuDisplay = $('body').hasClass('seach_on');
+
+        if (menuDisplay) {
+            $('.dim').fadeIn('fast');
+        } else {
+            $('.dim').fadeOut('fast');
+        }
+
+        $(".best_item_contents").css("display", "none");
+
+        //        $.ajax({
+        //            'url': '/Product/ProductAjax',
+        //            'type': 'POST',
+        //            'data': { code: "R201908_TOP_PRODUCT" },
+        //            success: function (data) {
+        //                $(".seach_box ul").append(data);
+        //            },
+        //            error: function (a, b) {
+        //            }
+        //        });
+    })
+
+</script>
+</head>
+<!-- 구글 아날리스틱 END -->
+
+<body class="top_banner_off">
+  <div id="wrap">
+    <div class="page">
+      <div class="header">
+        <div class="contents">
+          <!-- TOP logo 210421 온라인영업팀 박진웅 -->
+
+          <h1><a href="/">STCO 에스티코 공식 온라인 쇼핑몰, 남성 토털패션 브랜드</a></h1>
+
+          <div class="header_left">
+            <button type="button" class="menu">전체메뉴</button>
+            <button type="button" class="menu3" onclick="subMenuBut('3')">브랜드</button>
+            <a href="/Event/ProductPlanSp/20754"><button type="button" class="">최현욱 X STCO</button></a>
+            <button type="button" class="menu3" onclick="subMenuBut('17')">SPECIAL</button>
+            <a href="/product/indexAll/6K?gubun=main"><button type="button" class="">아울렛</button></a>
+            <a href="/product/BestProduct?item=BESTA"><button type="button" class="">베스트</button></a>
+            <a href="/Event/ProductPlanSp/18952"><button type="button" class="">수트샵</button></a>
+          </div>
+
+
+
+          <div class="header_right">
+            <a href="javascript:Login('in');"><button type="button" class="login">로그인</button></a>
+            <a href="/Join"><button type="button" class="membership">회원가입</button></a>
+
+
+            <a href="/Cart">
+              <button type="button" class="shopping_basket"><img class="icons" src="https://image.codigallery.com/all_img/stcomall/2021/main/210420_newheader/bag-outline.svg" alt="장바구니"></button>
+            </a>
+            <button type="button" class="seach"><img class="icons" src="https://image.codigallery.com/all_img/stcomall/2021/main/210420_newheader/search.svg" alt="찾기"></button>
+          </div>
+        </div>
+
+        <!-- 검색창 -->
+        <div class="seach_box" style="top: 87px;">
+          <div class="rank">
+            <h2>추천검색어&amp;베스트상품</h2>
+            <ol>
+              <li><a href="https://www.stco.co.kr/Event/ProductPlanSp/19434">1<span>최현욱 셋업</span></a></li>
+              <li><a href="https://www.stco.co.kr/Event/ProductPlanSp/19472">2<span>툭 셔츠</span></a></li>
+              <li><a href="https://www.stco.co.kr/Event/ProductPlanSp/19890">3<span>찰떡니트</span></a></li>
+              <li><a href="https://www.stco.co.kr/Event/ProductPlanSp/19990">4<span>RENEW WORK</span></a></li>
+              <li><a href="https://www.stco.co.kr/Event/ProductPlanSp/20170">5<span>오버핏 코트</span></a></li>
+              <li><a href="https://www.stco.co.kr/Event/ProductPlanSp/18952">6<span>크로스핏 수트</span></a></li>
+              <li><a href="https://www.stco.co.kr/Event/ProductPlanSp/19810">7<span>간절기 아우터</span></a></li>
+              <li><a href="https://www.stco.co.kr/Event/ProductPlanSp/19916#anchor_https://www.stco.co.kr/Event/ProductPlanSp/19916">8<span>캐시미어 100%</span></a></li>
+              <li><a href="https://www.stco.co.kr/Event/ProductPlanSp/19970">9<span>옥스포드</span></a></li>
+              <li><a href="https://www.stco.co.kr/Event/ProductPlanSp/19990#anchor_166768">10<span>모션프리</span></a></li>
+            </ol>
+          </div>
+          <div class="input_wrap">
+            <span><input type="text" placeholder="검색어를 입력하세요!" id="searchWord"></span>
+            <input type="hidden" class="searchUrl" value="">
+            <button type="button" onclick="searchProduct();">seach</button>
+            <a href="#n" class="close_seach">close_seach</a>
+          </div>
+          <ul class="best_item_contents" style="display:none">
+            <li>
+              <a href="/Detail/Index/SCTVA51OSB">
+                <span class="thumb" style="background-image: url('https://image.codigallery.com/stco/2024/ss/main/SCTVA51OSB_m0.jpg')"></span>
+                <strong></strong>
+                <p>더블 코트 블랙 (베이직핏)</p>
+
+                <div class="price">
+                  <em> 159,000원 </em>
+                </div>
+
+              </a>
+            </li>
+            <li>
+              <a href="/Detail/Index/SJPVA72NSB">
+                <span class="thumb" style="background-image: url('https://image.codigallery.com/stco/2024/ss/main/SJPVA72NSB_m0.jpg')"></span>
+                <strong></strong>
+                <p>비건레더 코치 점퍼 블랙 (세미오버핏...</p>
+
+                <div class="price">
+                  <em> 119,000원 </em>
+                </div>
+
+              </a>
+            </li>
+            <li>
+              <a href="/Detail/Index/SCTVA02NSD">
+                <span class="thumb" style="background-image: url('https://image.codigallery.com/stco/2024/ss/main/SCTVA02NSD_m0.jpg')"></span>
+                <strong></strong>
+                <p>맥 코트 베이지 (베이직핏)</p>
+
+                <div class="price">
+                  <em> 119,000원 </em>
+                </div>
+
+              </a>
+            </li>
+            <li>
+              <a href="/Detail/Index/SCTVZ51OSB">
+                <span class="thumb" style="background-image: url('https://image.codigallery.com/stco/2024/ss/main/SCTVZ51OSB_m0.jpg')"></span>
+                <strong></strong>
+                <p>발마칸 롱 트렌치 코트 블랙 (오버핏...</p>
+
+                <div class="price">
+                  <em> 159,000원 </em>
+                </div>
+
+              </a>
+            </li>
+          </ul>
+
+          <button type="button" class="seach_box_close">close</button>
+
+        </div>
+        <!-- 검색창 -->
+        <!-- 2020.06.03 전체메뉴 동적으로 수정 -->
+        <div class="all_menu_top" style="top: 87px;">
+          <div class="allmenu_sec">
+            <ul class="allmenu_flex">
+              <li>
+                <dl>
+                  <dt style="font-weight:bold;">SPECIAL</dt>
+                  <!-- 서브 카테고리 -->
+                  <dd><a href="/Event/ProductPlanSp/19472">시그니쳐 드레스 셔츠</a></dd>
+                  <dd><a href="/Event/ProductPlanSp/19990">RENEW WORK</a></dd>
+                  <dd><a href="/Event/ProductPlanSp/19434">최현욱의 오버핏 셋업</a></dd>
+                  <dd><a href="/Event/ProductPlanSp/19894">YOUNG VIBE collection</a></dd>
+                  <dd><a href="/Event/ProductPlanSp/19916">이탈리안 슈트 아울렛</a></dd>
+                </dl>
+              </li>
+              <li>
+                <dl>
+                  <dt style="font-weight:bold;">브랜드</dt>
+                  <!-- 서브 카테고리 -->
+                  <dd><a href="/product/BrandList?brand=STCO">STCO</a></dd>
+                  <dd><a href="/product/BrandList?brand=DIEMS">DIEMS</a></dd>
+                  <dd><a href="/product/BrandList?brand=CODIGALLERY">CODIGALLERY</a></dd>
+                  <dd><a href="/Event/ProductPlanSp/19170">CODI JUNIOR</a></dd>
+                  <dd><a href="/product/BrandList?brand=ZEROLOUNGE">ZERO LOUNGE</a></dd>
+                </dl>
+              </li>
+
+              <li>
+                <dl>
+                  <dt><a href="/product/indexAll/6A?gubun=detail" style="font-weight:bold;">SHIRTS</a></dt>
+                  <!-- 서브 카테고리 -->
+                  <dd><a href="/product/indexAll/6A8?gubun=detail">포멀셔츠</a></dd>
+                  <dd><a href="/product/indexAll/6A7?gubun=detail">캐주얼셔츠</a></dd>
+                  <dd><a href="/product/indexAll/6A9?gubun=detail">주니어</a></dd>
+                </dl>
+              </li>
+              <li>
+                <dl>
+                  <dt><a href="/product/indexAll/6C?gubun=detail" style="font-weight:bold;">SUIT</a></dt>
+                  <!-- 서브 카테고리 -->
+                  <dd><a href="/product/indexAll/6C1?gubun=detail">포멀 수트</a></dd>
+                  <dd><a href="/product/indexAll/6C2?gubun=detail">SET-UP 수트</a></dd>
+                  <dd><a href="/product/indexAll/6C5?gubun=detail">수트베스트</a></dd>
+                  <dd><a href="/product/indexAll/6C6?gubun=detail">주니어</a></dd>
+                </dl>
+              </li>
+              <li>
+                <dl>
+                  <dt><a href="/product/indexAll/6D?gubun=detail" style="font-weight:bold;">TOP</a></dt>
+                  <!-- 서브 카테고리 -->
+                  <dd><a href="/product/indexAll/6D1?gubun=detail">니트/가디건</a></dd>
+                  <dd><a href="/product/indexAll/6D7?gubun=detail">티셔츠</a></dd>
+                  <dd><a href="/product/indexAll/6D8?gubun=detail">맨투맨/후드</a></dd>
+                  <dd><a href="/product/indexAll/6DA?gubun=detail">이너웨어</a></dd>
+                  <dd><a href="/product/indexAll/6DC?gubun=detail">주니어</a></dd>
+                </dl>
+              </li>
+              <li>
+                <dl>
+                  <dt><a href="/product/indexAll/6B?gubun=detail" style="font-weight:bold;">PANTS</a></dt>
+                  <!-- 서브 카테고리 -->
+                  <dd><a href="/product/indexAll/6B1?gubun=detail">슬랙스</a></dd>
+                  <dd><a href="/product/indexAll/6B3?gubun=detail">치노/데님/카고</a></dd>
+                  <dd><a href="/product/indexAll/6B5?gubun=detail">트레이닝</a></dd>
+                  <dd><a href="/product/indexAll/6B4?gubun=detail">숏팬츠</a></dd>
+                  <dd><a href="/product/indexAll/6B6?gubun=detail">주니어</a></dd>
+                </dl>
+              </li>
+              <li>
+                <dl>
+                  <dt><a href="/product/indexAll/6E?gubun=detail" style="font-weight:bold;">OUTER</a></dt>
+                  <!-- 서브 카테고리 -->
+                  <dd><a href="/product/indexAll/6EA?gubun=detail">코트</a></dd>
+                  <dd><a href="/product/indexAll/6E7?gubun=detail">점퍼/블루종</a></dd>
+                  <dd><a href="/product/indexAll/6E8?gubun=detail">블레이저/자켓</a></dd>
+                  <dd><a href="/product/indexAll/6EB?gubun=detail">패딩베스트</a></dd>
+                  <dd><a href="/product/indexAll/6EC?gubun=detail">주니어</a></dd>
+                </dl>
+              </li>
+              <li>
+                <dl>
+                  <dt><a href="/product/indexAll/6F?gubun=detail" style="font-weight:bold;">ACC</a></dt>
+                  <!-- 서브 카테고리 -->
+                  <dd><a href="/product/indexAll/6FA?gubun=detail">넥타이</a></dd>
+                  <dd><a href="/product/indexAll/6F2?gubun=detail">벨트</a></dd>
+                  <dd><a href="/product/indexAll/6F1?gubun=detail">구두</a></dd>
+                  <dd><a href="/product/indexAll/6F9?gubun=detail">스니커즈</a></dd>
+                  <dd><a href="/product/indexAll/6FB?gubun=detail">머플러</a></dd>
+                  <dd><a href="/product/indexAll/6F3?gubun=detail">가방/지갑</a></dd>
+                  <dd><a href="/product/indexAll/6F5?gubun=detail">양말</a></dd>
+                  <dd><a href="/product/indexAll/6FC?gubun=detail">주니어</a></dd>
+                </dl>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 2020.06.03 전체메뉴 동적으로 수정 -->
+        <div id="subMenu3" class="subMenu" style="display:none; color: gray; height:50px;">
+          <ul style="position: relative; top: 0; display:flex; justify-content:center; overflow: hidden; z-index: 97; -webkit-transition: transform .22s linear; transition: transform .22s linear;">
+            <li style="float:left; margin-right:5%"><a href="/product/BrandList?brand=STCO" style="font-size:20px">STCO</a></li>
+            <li style="float:left; margin-right:5%"><a href="/product/BrandList?brand=DIEMS" style="font-size:20px">DIEMS</a></li>
+            <li style="float:left; margin-right:5%"><a href="/product/BrandList?brand=ZEROLOUNGE" style="font-size:20px">ZERO LOUNGE</a></li>
+            <li style="float:left; margin-right:5%"><a href="/product/BrandList?brand=CODIGALLERY" style="font-size:20px">CODIGALLERY</a></li>
+            <li style="float:left; margin-right:5%"><a href="/Event/ProductPlanSp/19170" style="font-size:20px">CODI JUNIOR</a></li>
+          </ul>
+        </div>
+        <div id="subMenu17" class="subMenu" style="display:none; color: gray; height:50px;">
+          <ul style="position: relative; top: 0; display:flex; justify-content:center; overflow: hidden; z-index: 97; -webkit-transition: transform .22s linear; transition: transform .22s linear;">
+            <li style="float:left; margin-right:5%"><a href="/Event/ProductPlanSp/19472" style="font-size:20px">에센셜 셔츠</a></li>
+            <li style="float:left; margin-right:5%"><a href="/Event/ProductPlanSp/19434" style="font-size:20px">최현욱 블레이져 셋업</a></li>
+            <li style="float:left; margin-right:5%"><a href="/Event/ProductPlanSp/19990" style="font-size:20px">RENEW WORK</a></li>
+            <li style="float:left; margin-right:5%"><a href="/Event/ProductPlanSp/19916" style="font-size:20px">이탈리안 슈트 아울렛</a></li>
+            <li style="float:left; margin-right:5%"><a href="/Event/ProductPlanSp/19810" style="font-size:20px">사무실에서 뭐 입지?</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- container -->
+      <div id="container" class="container detail">
+        <div id="content">
+
+          <!-- =============================     dumicode 202403 ========================================= -->
+          <link rel="stylesheet" type="text/css" href="Content/Common/Contents/css/common_prodDetail_202403.css" />
+          <link rel="stylesheet" type="text/css" href="Content/Common/Contents/css/swiper-bundle.min.css" />
+          <script type="text/javascript" src="Content/Common/Contents/js/swiper-bundle.min.js"></script>
+          <script type="text/javascript" src="Content/Common/Contents/js/design.js"></script>
+          <div class="prodWrap">
+            <div class="prodDetailTopWrap">
+              <div class="swpBox">
+                <div class="swiper-container swpMainVisual">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <a href="#" class="img" style="background-image: url(Content/Common/Contents/images/202406/img_main_visual_01.jpg);"></a>
+                    </div>
+                    <div class="swiper-slide">
+                      <a href="#" class="img" style="background-image: url(Content/Common/Contents/images/202406/img_main_visual_01.jpg);"></a>
+                    </div>
+                    <div class="swiper-slide">
+                      <a href="#" class="img" style="background-image: url(Content/Common/Contents/images/202406/img_main_visual_01.jpg);"></a>
+                    </div>
+                    <div class="swiper-slide">
+                      <a href="#" class="img" style="background-image: url(Content/Common/Contents/images/202406/img_main_visual_01.jpg);"></a>
+                    </div>
+                    <div class="swiper-slide">
+                      <a href="#" class="img" style="background-image: url(Content/Common/Contents/images/202406/img_main_visual_01.jpg);"></a>
+                    </div>
+                    <div class="swiper-slide">
+                      <a href="#" class="img" style="background-image: url(Content/Common/Contents/images/202406/img_main_visual_01.jpg);"></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-container swpMainVisualThumbs">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="img" style="background-image: url(Content/Common/Contents/images/202406/img_main_visual_01.jpg);"></div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="img" style="background-image: url(Content/Common/Contents/images/202406/img_main_visual_01.jpg);"></div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="img" style="background-image: url(Content/Common/Contents/images/202406/img_main_visual_01.jpg);"></div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="img" style="background-image: url(Content/Common/Contents/images/202406/img_main_visual_01.jpg);"></div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="img" style="background-image: url(Content/Common/Contents/images/202406/img_main_visual_01.jpg);"></div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="img" style="background-image: url(Content/Common/Contents/images/202406/img_main_visual_01.jpg);"></div>
+                    </div>
+                  </div>
+                </div>
+    
+                <script>
+                  $(document).ready(function () {
+                    var swpMainVisualThumbs = new Swiper('.swpMainVisualThumbs', {
+                      freeMode: true,
+                      spaceBetween: 15,
+                      slidesPerView: 6,
+                      watchSlidesProgress: true,
+                    });
+    
+                    var swpMainVisual = new Swiper('.swpMainVisual', {
+                      loop: true,
+                      speed: 800,
+                      autoplay: 5000,
+                      thumbs: {
+                        swiper: swpMainVisualThumbs
+                      }
+                    });
+                  });
+    
+                </script>
+              </div>
+              <div class="prodOptionBox">
+                <div class="dDayBox">
+                  <h3 class="titDDay">타임특가 종료 </h3>
+                  <p class="txtDDay">D-05 /  15:26:00</p>
+                </div>
+                <h2 class="prodTitle">EASY CARE 모달 스판 레귤러카라 셔츠 블루 (클래식핏)</h2>
+                <div class="priceBox">
+                  <p class="priceOld">29,900</p>
+                  <p class="priceNew">19,000</p>
+                  <p class="pricePer">20%</p>
+                  <p class="shippingType">온라인 배송</p>
+                </div>
+                <div class="discountBox">
+                  <h3 class="titDiscount">묶음 할인 상품</h3>
+                  <p class="txtDiscount">
+                    2장 이상 구매시 <span class="colorRed">장당 4,000원 할인</span> 
+                    <br/>
+                    <br/>- 묶음 할인 혜택은 <span class="colorBlue">장바구니/결제 단계에서 자동 적용</span>됩니다.
+                    <br/>- 네이버 체크아웃은 묶음 할인 혜택이 적용되지 않습니다.
+                  </p>
+                  <a href="#" class="btnDiscount">묶음할인 가능한 상품 모두 보기</a>
+                </div>
+                <p class="prodIntro">
+                  가장 많이 활용하는 베지직 라운드 티셔츠 2장 묶음 PACK 구성 입니다.면 100% 소재로 소프트한 터치감의 코마사 사용하였습니다.
+                </p>
+                <div class="prodInfoBox">
+                  <ul class="listProdInfo">
+                    <li>
+                      <h3 class="titProdInfo">계절</h3>
+                      <p class="txtProdInfo">봄부터 여름까지 입기 좋은 셔츠 입니다.</p>
+                    </li>
+                    <li>
+                      <h3 class="titProdInfo">핏</h3>
+                      <p class="txtProdInfo">클래식핏</p>
+                    </li>
+                  </ul>
+                  <a href="#" onclick="targetClick(this, 'targetProdInfoNotice')" class="btnProdInfoMore" >상품정보 더보기</a>
+                </div>
+                <div class="optionBox">
+                  <ul class="listOption">
+                    <li>
+                      <h3 class="titOption">사이즈</h3>
+                      <div class="option">
+                        <div class="sizeBox">
+                          <div class="size">
+                            <input type="checkbox" name="size1" id="size1_1" data-name="사이즈" date-price="18900" value="95" />
+                            <label for="size1_1">95</label>
+                          </div>
+                          <div class="size">
+                            <input type="checkbox" name="size1" id="size1_2" data-name="사이즈" date-price="18900" value="100"/>
+                            <label for="size1_2">100</label>
+                          </div>
+                          <div class="size">
+                            <input type="checkbox" name="size1" id="size1_3" data-name="사이즈" date-price="18900" value="105" disabled/>
+                            <label for="size1_3">105</label>
+                          </div>
+                          <div class="size">
+                            <input type="checkbox" name="size1" id="size1_4" data-name="사이즈" date-price="18900" value="110"/>
+                            <label for="size1_4">110</label>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <h3 class="titOption">팬츠</h3>
+                      <div class="option">
+                        <div class="sizeBox">
+                          <div class="size">
+                            <input type="checkbox" name="size2" id="size2_1" data-name="팬츠" date-price="29900" value="74" />
+                            <label for="size2_1">74</label>
+                          </div>
+                          <div class="size">
+                            <input type="checkbox" name="size2" id="size2_2" data-name="팬츠" date-price="29900" value="78"/>
+                            <label for="size2_2">78</label>
+                          </div>
+                          <div class="size">
+                            <input type="checkbox" name="size2" id="size2_3" data-name="팬츠" date-price="29900" value="82"/>
+                            <label for="size2_3">82</label>
+                          </div>
+                          <div class="size">
+                            <input type="checkbox" name="size2" id="size2_4" data-name="팬츠" date-price="29900" value="84"/>
+                            <label for="size2_4">84</label>
+                          </div>
+                          <div class="size">
+                            <input type="checkbox" name="size2" id="size2_5" data-name="팬츠" date-price="29900" value="86"/>
+                            <label for="size2_5">86</label>
+                          </div>
+                          <div class="size">
+                            <input type="checkbox" name="size2" id="size2_6" data-name="팬츠" date-price="29900" value="88"/>
+                            <label for="size2_6">88</label>
+                          </div>
+                          <div class="size">
+                            <input type="checkbox" name="size2" id="size2_7" data-name="팬츠" date-price="29900" value="90"/>
+                            <label for="size2_7">90</label>
+                          </div>
+                          <div class="size">
+                            <input type="checkbox" name="size2" id="size2_8" data-name="팬츠" date-price="29900" value="94"/>
+                            <label for="size2_8">94</label>
+                          </div>
+                          <div class="size">
+                            <input type="checkbox" name="size2" id="size2_9" data-name="팬츠" date-price="29900" value="98"/>
+                            <label for="size2_9">98</label>
+                          </div>
+                          <div class="size">
+                            <input type="checkbox" name="size2" id="size2_10" data-name="팬츠" date-price="29900" value="102"/>
+                            <label for="size2_10">102</label>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="listOptionDetail">
+                    <!-- <li>
+                      <div class="optionDetailBox">
+                        <h3 class="titOptionDetail">사이즈 - 100</h3>
+                        <div class="numBox">
+                          <button class="btnDown">-</button>
+                          <input type="text" class="textNum" value="2"/>
+                          <button class="btnUp">+</button>
+                        </div>
+                        <p class="txtPrice">29900원</p>
+                        <button class="btnDel"></button>
+                      </div>
+                    </li> -->
+                  </ul>
+
+                  <script>
+                  $(document).ready(function() {
+                    // 모든 체크박스 변경 이벤트를 감지합니다.
+                    $('.listOption input[type="checkbox"]').change(function() {
+                      // 선택된 체크박스의 값, 카테고리 및 가격을 가져옵니다.
+                      var sizeValue = $(this).val();
+                      var categoryName = $(this).attr('data-name');
+                      var pricePerItem = parseInt($(this).attr('date-price'));
+
+                      // 체크박스가 선택된 경우
+                      if ($(this).is(':checked')) {
+                        // 동일한 데이터가 이미 있는지 확인합니다.
+                        if($('.listOptionDetail').find('.titOptionDetail:contains("' + categoryName + ' - ' + sizeValue + '")').length === 0) {
+                          // 동일한 데이터가 없으면 새로운 데이터를 추가합니다.
+                          $('.listOptionDetail').append(
+                            '<li>' +
+                              '<div class="optionDetailBox">' +
+                                '<h3 class="titOptionDetail">' + categoryName + ' - ' + sizeValue + '</h3>' +
+                                '<div class="numBox">' +
+                                  '<button class="btnDown">-</button>' +
+                                  '<input type="text" class="textNum" value="1"/>' +
+                                  '<button class="btnUp">+</button>' +
+                                '</div>' +
+                                '<p class="txtPrice" data-price="' + pricePerItem + '">' + pricePerItem.toLocaleString('ko-KR') + '원</p>' +
+                                '<button class="btnDel">삭제</button>' +
+                              '</div>' +
+                            '</li>'
+                          );
+                        }
+                      } else {
+                        // 체크박스가 선택 해제된 경우 해당 데이터를 삭제합니다.
+                        $('.listOptionDetail').find('.titOptionDetail:contains("' + categoryName + ' - ' + sizeValue + '")').closest('li').remove();
+                      }
+                      updateTotalPrice(); // 선택 후 총 상품금액을 업데이트합니다.
+                    });
+
+                    // 삭제 버튼 클릭 이벤트를 감지합니다 (이벤트 위임).
+                    $('.listOptionDetail').on('click', '.btnDel', function() {
+                      // 현재 데이터를 삭제합니다.
+                      var categorySize = $(this).siblings('.titOptionDetail').text().split(' - ');
+                      var categoryName = categorySize[0];
+                      var sizeValue = categorySize[1];
+                      $('input[type="checkbox"][data-name="' + categoryName + '"][value="' + sizeValue + '"]').prop('checked', false);
+                      $(this).closest('li').remove();
+                      updateTotalPrice(); // 삭제 후 총 상품금액을 업데이트합니다.
+                    });
+
+                    // 증가 버튼 클릭 이벤트를 감지합니다.
+                    $('.listOptionDetail').on('click', '.btnUp', function() {
+                      var $textNum = $(this).siblings('.textNum');
+                      var currentValue = parseInt($textNum.val());
+                      $textNum.val(currentValue + 1);
+                      updateTxtPrice($(this).closest('.optionDetailBox')); // 증가 후 txtPrice를 업데이트합니다.
+                      updateTotalPrice(); // 증가 후 총 상품금액을 업데이트합니다.
+                    });
+
+                    // 감소 버튼 클릭 이벤트를 감지합니다.
+                    $('.listOptionDetail').on('click', '.btnDown', function() {
+                      var $textNum = $(this).siblings('.textNum');
+                      var currentValue = parseInt($textNum.val());
+                      if (currentValue > 1) {
+                        $textNum.val(currentValue - 1);
+                        updateTxtPrice($(this).closest('.optionDetailBox')); // 감소 후 txtPrice를 업데이트합니다.
+                        updateTotalPrice(); // 감소 후 총 상품금액을 업데이트합니다.
+                      }
+                    });
+
+                    // textNum 변경 이벤트를 감지합니다.
+                    $('.listOptionDetail').on('input', '.textNum', function() {
+                      updateTxtPrice($(this).closest('.optionDetailBox')); // 변경 후 txtPrice를 업데이트합니다.
+                      updateTotalPrice(); // 변경 후 총 상품금액을 업데이트합니다.
+                    });
+
+                    // txtPrice 업데이트 함수를 정의합니다.
+                    function updateTxtPrice($optionDetailBox) {
+                      var $txtPrice = $optionDetailBox.find('.txtPrice');
+                      var pricePerItem = parseInt($txtPrice.attr('data-price'));
+                      var quantity = parseInt($optionDetailBox.find('.textNum').val());
+                      var totalPrice = pricePerItem * quantity;
+                      $txtPrice.text(totalPrice.toLocaleString('ko-KR') + '원');
+                    }
+
+                    // 총 상품금액 업데이트 함수를 정의합니다.
+                    function updateTotalPrice() {
+                      var total = 0;
+                      $('.txtPrice').each(function() {
+                        var priceString = $(this).text().replace('원', '').replace(',', '');
+                        var price = parseInt(priceString);
+                        total += price;
+                      });
+                      $('.txtTotalPrice').text(total.toLocaleString('ko-KR') + '원');
+                    }
+                  });
+                  </script>
+                </div>
+                <div class="totalPriceBox">
+                  <h3 class="titTotalPrice">총 상품금액</h3>
+                  <p class="txtTotalPrice">0원</p>
+                </div>
+                <div class="btnOptionBox">
+                  <a href="#" class="btnOption style1">장바구니</a>
+                  <a href="#" class="btnOption style2">바로 구매</a>
+                </div>
+                <a href="#" class="imgAd">
+                  <img src="Content/Common/Contents/images/202406/img_ad_option.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+            <div class="prodDetailTabBox">
+              <div class="tabTitBox">
+                <div class="tabTit">
+                  <a href="#prodInfo" data-tab="prodInfo" class="btnTab on">상품 정보</a>
+                  <a href="#prodReview" data-tab="prodReview" class="btnTab">구매 후기 (6)</a>
+                  <a href="#prodQA" data-tab="prodQA" class="btnTab">상품 Q&A (3)</a>
+                  <a href="#prodShipping" data-tab="prodShipping" class="btnTab">배송/교환/반품</a>
+                </div>
+              </div>
+              <div class="tabContBox">
+                <div id="prodInfo" class="tabCont prodInfo on">
+                  <div class="prodInfoItem">
+                    <h3 class="titProdInfo">상세설명</h3>
+                    <p class="txtProdInfo">
+                      물세탁 후에 다림질 없이 툭툭 털어서 바로 입을 수 있는 보들보들한 감촉의 셔츠입니다. 
+                      <br/>우수한 스트레치성으로 편안한 착용감을 느낄 수 있고, 구김이 덜한 이지케어 제품입니다. 
+                      <br/>연중 내내 기본으로 착용할 수 있는 베이직 아이템입니다.
+                    </p>
+                    <div style="width:900px; margin:0 auto;">
+                      <table class="tblStyle1" >
+                        <tbody>
+                          <tr>
+                            <th scope="row">비침</th>
+                            <td><strong>없음</strong></td>
+                            <td><strong>중간</strong></td>
+                            <td>비침</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">두께감</th>
+                            <td>얇음</td>
+                            <td>중간</td>
+                            <td>도톰</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">신축성</th>
+                            <td>없음</td>
+                            <td>중간</td>
+                            <td><strong>높음</strong></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div style="margin-top: 10px;">
+                        <img src="Content/Common/Contents/images/202406/img_prodInfo.jpg" alt="" style="width:100%"/>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="prodInfoItem">
+                    <div class="txtCenter">
+                      <h3 class="titProdInfo">편안하고 세련된 컴포트 블레이저</h3>
+                      <p class="txtProdInfo">
+                        물세탁 후에 다림질 없이 툭툭 털어서 바로 입을 수 있는 보들보들한 감촉의 셔츠입니다. 
+                        <br/>우수한 스트레치성으로 편안한 착용감을 느낄 수 있고, 구김이 덜한 이지케어 제품입니다. 
+                        <br/>연중 내내 기본으로 착용할 수 있는 베이직 아이템입니다.
+                      </p>
+                      <ul class="listImgBox">
+                        <li>
+                          <a href="#" class="img">
+                            <img src="Content/Common/Contents/images/202406/img_detail_prod_01.jpg" alt="">
+                          </a>
+                          <a href="#" class="tit">COMFORT STRETCH 셋업 차콜 그레이 자켓</a>
+                        </li>
+                        
+                        <li>
+                          <a href="#" class="img">
+                            <img src="Content/Common/Contents/images/202406/img_detail_prod_02.jpg" alt="">
+                          </a>
+                          <a href="#" class="tit">COMFORT STRETCH 셋업 차콜 그레이 팬츠</a>
+                        </li>
+                      </ul>
+                      <p class="txtListImg">※ 옵션 이미지를 클릭하시면, 해당하는 옵션의 상세페이지로 이동합니다.</p>
+                    </div>
+                  </div>
+
+                  <div class="prodInfoItem" id="targetProdInfoNotice">
+                    <h3 class="titProdInfoStyle2">상품정보 제공고시</h3>
+                    <table class="tblStyle2">
+                      <tbody>
+                        <tr>
+                          <th scope="row">품번</th>
+                          <td>CSJVZ01BSB</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">제조년월</th>
+                          <td>2023년 9월</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">색상</th>
+                          <td>블랙</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">제조국</th>
+                          <td>베트남</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">소재</th>
+                          <td>폴리에스터 77%, 레이온 17%, 폴리우레탄 6%</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">제조업자명/수입업자명</th>
+                          <td>KHC</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">세탁방법</th>
+                          <td>드라이</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">판매자명</th>
+                          <td>㈜에스티오</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                </div>
+                <div id="prodReview" class="tabCont prodReview">
+                  <div class="tipBox">
+                    <p class="txtTip">리뷰 작성 시 구매금액의 <span class="colorRed">최대 2% 마일리지</span> 적립</p>
+                  </div>
+                  <div class="starLayoutBox">
+                    <div class="numBox">
+                      <h2 class="num">4.5</h2>
+                      <div class="starBox">
+                        <span class="star full"></span>
+                        <span class="star full"></span>
+                        <span class="star full"></span>
+                        <span class="star full"></span>
+                        <span class="star half"></span>
+                      </div>
+                      <p class="txtNum">고객님의 총 평점</p>
+                    </div>
+                    <div class="perBox">
+                      <h3 class="titType">사이즈</h3>
+                      <ul class="listPer">
+                        <li>
+                          <h4 class="titPer">작아요</h4>
+                          <div class="process">
+                            <div class="val" style="width:0%"></div>  
+                          </div>
+                          <p class="txtPer">0%</p>
+                        </li>
+                        <li>
+                          <h4 class="titPer">잘맞아요</h4>
+                          <div class="process">
+                            <div class="val" style="width:92%"></div>  
+                          </div>
+                          <p class="txtPer">92%</p>
+                        </li>
+                        <li>
+                          <h4 class="titPer">커요</h4>
+                          <div class="process">
+                            <div class="val" style="width:8%"></div>  
+                          </div>
+                          <p class="txtPer">8%</p>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="perBox">
+                      <h3 class="titType">컬러</h3>
+                      <ul class="listPer">
+                        <li>
+                          <h4 class="titPer">밝아요</h4>
+                          <div class="process">
+                            <div class="val" style="width:20%"></div>  
+                          </div>
+                          <p class="txtPer">20%</p>
+                        </li>
+                        <li>
+                          <h4 class="titPer">화면과 같아요</h4>
+                          <div class="process">
+                            <div class="val" style="width:72%"></div>  
+                          </div>
+                          <p class="txtPer">72%</p>
+                        </li>
+                        <li>
+                          <h4 class="titPer">어두워요</h4>
+                          <div class="process">
+                            <div class="val" style="width:8%"></div>  
+                          </div>
+                          <p class="txtPer">8%</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="imgReviewBox">
+                    <a href="javascript:openPop('popPhotoReview');" class="btnImgReview" style="background-image: url(Content/Common/Contents/images/202406/img_review_01.jpg);"></a>
+                    <a href="javascript:openPop('popPhotoReview');" class="btnImgReview" style="background-image: url(Content/Common/Contents/images/202406/img_review_02.jpg);"></a>
+                    <a href="javascript:openPop('popPhotoReview');" class="btnImgReview" style="background-image: url(Content/Common/Contents/images/202406/img_review_03.jpg);"></a>
+                    <a href="javascript:openPop('popPhotoReview');" class="btnImgReview" style="background-image: url(Content/Common/Contents/images/202406/img_review_04.jpg);"></a>
+                    <a href="javascript:openPop('popPhotoReview');" class="btnImgReview" style="background-image: url(Content/Common/Contents/images/202406/img_review_05.jpg);"></a>
+                    <a href="javascript:openPop('popPhotoReview');" class="btnImgReview" style="background-image: url(Content/Common/Contents/images/202406/img_review_06.jpg);"></a>
+                    <a href="javascript:openPop('popPhotoReview');" class="btnImgReview" style="background-image: url(Content/Common/Contents/images/202406/img_review_07.jpg);"></a>
+                    <a href="javascript:openPop('popPhotoList');" class="btnImgReview btnImgReviewMore" style="background-image: url(Content/Common/Contents/images/202406/img_review_08.jpg);"></a>
+                  </div>
+                  <ul class="listReview">
+                    <li>
+                      <div class="reviewInfoBox">
+                        <div class="starBox">
+                          <span class="star full"></span>
+                          <span class="star full"></span>
+                          <span class="star full"></span>
+                          <span class="star full"></span>
+                          <span class="star half"></span>
+                        </div>
+                        <div class="reviewInfo">
+                          <div class="prodOptionBox">
+                            <p class="txtProdOption">
+                              <span class="itemOption">구매옵션 : 샌드베이지 / 110</span>
+                              <span class="itemOption">사이즈 정보 : 182cm / 82kg / 보통체격</span>
+                            </p>
+                            <div class="userBox">
+                              <p class="name">adklaa***</p>
+                              <p class="date">2023-07-03</p>
+                            </div>
+                          </div>
+                          <div class="tagReviewBox">
+                            <div class="tagItem">
+                              <span class="titTag">사이즈</span>
+                              <span class="txtTag">딱 맞아요</span>
+                            </div>
+                            <div class="tagItem">
+                              <span class="titTag">색상</span>
+                              <span class="txtTag">화면과 같아요</span>
+                            </div>
+                          </div>
+                          <p class="txtReview">
+                            일반적인 포켓 면티 입니다 평소에 m은 좀 작고 L은 좀 큰편인데 중간사이즈인데 어깨가 딱 맞습니다 길이감도 적당하고 두께감은 일반적인 흰색 면티 정도입니다 세일할때 사서 좋은가격에 잘 구매했네요
+                            일반적인 포켓 면티 입니다 평소에 m은 좀 작고 L은 좀 큰편인데 중간사이즈인데 어깨가 딱 맞습니다 길이감도 적당하고 두께감은 일반적인 흰색 면티 정도입니다 세일할때 사서 좋은가격에 잘 구매했네요
+                            일반적인 포켓 면티 입니다 평소에 m은 좀 작고 L은 좀 큰편인데 중간사이즈인데 어깨가 딱 맞습니다 길이감도 적당하고 두께감은 일반적인 흰색 면티 정도입니다 세일할때 사서 좋은가격에 잘 구매했네요
+                            일반적인 포켓 면티 입니다 평소에 m은 좀 작고 L은 좀 큰편인데 중간사이즈인데 어깨가 딱 맞습니다 길이감도 적당하고 두께감은 일반적인 흰색 면티 정도입니다 세일할때 사서 좋은가격에 잘 구매했네요
+                          </p>
+                          <div class="layoutToolBox">
+                            <div class="toolBox">
+                              <a href="javascript:openPop('popBlock');" class="btnTool">차단</a>
+                              <span class="dot">|</span>
+                              <a href="javascript:openPop('popReport');" class="btnTool">신고</a>
+                            </div>
+                            <div class="upDownBox">
+                              <a href="#" class="btnUpDown up">8</a>
+                              <a href="#" class="btnUpDown down">1</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="reviewInfoBox">
+                        <div class="starBox">
+                          <span class="star full"></span>
+                          <span class="star full"></span>
+                          <span class="star full"></span>
+                          <span class="star full"></span>
+                          <span class="star half"></span>
+                        </div>
+                        <div class="reviewInfo">
+                          <div class="prodOptionBox">
+                            <p class="txtProdOption">
+                              <span class="itemOption">구매옵션 : 샌드베이지 / 110</span>
+                              <span class="itemOption">사이즈 정보 : 182cm / 82kg / 보통체격</span>
+                            </p>
+                            <div class="userBox">
+                              <p class="name">adklaa***</p>
+                              <p class="date">2023-07-03</p>
+                            </div>
+                          </div>
+                          <div class="tagReviewBox">
+                            <div class="tagItem">
+                              <span class="titTag">사이즈</span>
+                              <span class="txtTag">딱 맞아요</span>
+                            </div>
+                            <div class="tagItem">
+                              <span class="titTag">색상</span>
+                              <span class="txtTag">화면과 같아요
+                              </span>
+                            </div>
+                          </div>
+                          <p class="txtReview">
+                            일반적인 포켓 면티 입니다 평소에 m은 좀 작고 L은 좀 큰편인데 중간사이즈인데 어깨가 딱 맞습니다 길이감도 적당하고 두께감은 일반적인 흰색 면티 정도입니다 세일할때 사서 좋은가격에 잘 구매했네요
+                            일반적인 포켓 면티 입니다 평소에 m은 좀 작고 L은 좀 큰편인데 중간사이즈인데 어깨가 딱 맞습니다 길이감도 적당하고 두께감은 일반적인 흰색 면티 정도입니다 세일할때 사서 좋은가격에 잘 구매했네요
+                            일반적인 포켓 면티 입니다 평소에 m은 좀 작고 L은 좀 큰편인데 중간사이즈인데 어깨가 딱 맞습니다 길이감도 적당하고 두께감은 일반적인 흰색 면티 정도입니다 세일할때 사서 좋은가격에 잘 구매했네요
+                            일반적인 포켓 면티 입니다 평소에 m은 좀 작고 L은 좀 큰편인데 중간사이즈인데 어깨가 딱 맞습니다 길이감도 적당하고 두께감은 일반적인 흰색 면티 정도입니다 세일할때 사서 좋은가격에 잘 구매했네요
+                          </p>
+                          <div class="layoutToolBox">
+                            <div class="toolBox">
+                              <a href="javascript:openPop('popBlock');" class="btnTool">차단</a>
+                              <span class="dot">|</span>
+                              <a href="javascript:openPop('popReport');" class="btnTool">신고</a>
+                            </div>
+                            <div class="upDownBox">
+                              <a href="#" class="btnUpDown up">8</a>
+                              <a href="#" class="btnUpDown down">1</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="pageBox">
+                    <a href="#" class="btnPrev">Prev</a>
+                    <a href="#" class="btnPage on">1</a>
+                    <a href="#" class="btnPage">2</a>
+                    <a href="#" class="btnPage">3</a>
+                    <a href="#" class="btnPage">4</a>
+                    <a href="#" class="btnPage">5</a>
+                    <a href="#" class="btnPage">6</a>
+                    <a href="#" class="btnPage">7</a>
+                    <a href="#" class="btnPage">8</a>
+                    <a href="#" class="btnPage">9</a>
+                    <a href="#" class="btnPage">10</a>
+                    <a href="#" class="btnNext">Next</a>
+                  </div>
+                </div>
+                <div id="prodQA" class="tabCont prodQA">
+                  <div class="tipBox">
+                    <p class="txtTip">· 궁금하신 사항은 무엇이든 문의주세요. 주문/배송/교환/환불/불량 등의 문의는 <span class="colorRed">1:1 문의</span>를 이용해주세요</p>
+                  </div>
+                  <div class="qaBox">
+                    <div class="qaHead">
+                      <div class="filterBox">
+                        <button class="btnFilter on">전체(5)</button>
+                        <button class="btnFilter">답변완료(3)</button>
+                        <button class="btnFilter">답변대기(2)</button>
+                      </div>
+                      <button class="btnWriteQa" onclick="openPop('popQaWrite');">상품 Q&A 작성하기 </button>
+                    </div>
+                    <ul class="listQa">
+                      <li>
+                        <div class="qaItemBox">
+                          <div class="qBox">
+                            <span class="status style1">답변완료</span>
+                            <h3 class="titQ"><strong>Q</strong> 비밀글입니다. <span class="icon lock"></span></h3>
+                            <div class="rightBox">
+                              <span class="name">abcd******</span>
+                              <span class="date">2023.05.30</span>
+                            </div>
+                          </div>
+                          <!-- <div class="aBox">
+                            <p class="txtA"><strong>A</strong>비밀글에 답변이 달렸습니다.</p>
+                          </div> -->
+                        </div>
+                      </li>
+                      <li>
+                        <div class="qaItemBox">
+                          <div class="qBox">
+                            <span class="status style1">답변완료</span>
+                            <h3 class="titQ"><strong>Q</strong>색상 문의 드립니다. 아이보리 컬러 비침이 어느정도 인가요?</h3>
+                            <div class="rightBox">
+                              <span class="name">abcd******</span>
+                              <span class="date">2023.05.30</span>
+                            </div>
+                          </div>
+                          <div class="aBox">
+                            <p class="txtA"><strong>A</strong>안녕하세요 고객님 sTCO 온라인몰 상품문의 담당자입니다. 먼저, 문의하신 내용에 대해 즉시 안내가 어렵다는 답변을 드리게 되어 죄송합니다. 
+                              번거로우시겠지만, 자세한 상담을 위해 고객센터 혹은 1:1 게시판으로 문의해 주시길 부탁드립니다. 항상 계획하신 일 모두 이루어지시길 기원합니다. 늘 건강하세요. 감사합니다</p>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="qaItemBox">
+                          <div class="qBox">
+                            <span class="status style2">답변완료</span>
+                            <h3 class="titQ"><strong>Q</strong> 평소 100 사이즈 입는데 같은 100사이즈 주문하면 될까요?</h3>
+                            <div class="rightBox">
+                              <span class="name">abcd******</span>
+                              <span class="date">2023.05.30</span>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                    <div class="pageBox">
+                      <a href="#" class="btnPrev">Prev</a>
+                      <a href="#" class="btnPage on">1</a>
+                      <a href="#" class="btnPage">2</a>
+                      <a href="#" class="btnPage">3</a>
+                      <a href="#" class="btnPage">4</a>
+                      <a href="#" class="btnPage">5</a>
+                      <a href="#" class="btnPage">6</a>
+                      <a href="#" class="btnPage">7</a>
+                      <a href="#" class="btnPage">8</a>
+                      <a href="#" class="btnPage">9</a>
+                      <a href="#" class="btnPage">10</a>
+                      <a href="#" class="btnNext">Next</a>
+                    </div>
+                  </div>
+                  <script>
+                    $('.listQa .qBox').click(function(){
+                      $(this).next().toggle();
+                    });
+                  </script>
+
+                  <!-- 등록된 Q&A가 없습니다. -->
+                  <div class="qaBox">
+                    <p class="txtNodata">등록된 Q&A가 없습니다.</p>
+                  </div>
+                  <!--// 등록된 Q&A가 없습니다. -->
+                </div>
+                <div id="prodShipping" class="tabCont prodShipping">
+                  <div class="prodShippingBox">
+                    <h3 class="titProdInfo">배송안내</h3>
+                    <table class="tblStyle2">
+                      <tbody>
+                        <tr>
+                          <th scope="row">배송비</th>
+                          <td>기본 배송비 2,500원이며, 3만원 이상 구매 시 <span class="colorRed">무료배송</span>입니다.</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">배송지역</th>
+                          <td><span class="colorRed">전국 배송</span>이 가능합니다. 제주도나 기타 도서지방은 배송 기간이 늘어날 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                          <th scope="row" rowspan="2">배송형태</th>
+                          <td>
+                            <div class="layoutBox">
+                              <h3 class="titLayout colorRed">온라인 상품배송</h3>
+                              <p class="txtLayout">
+                                온라인 전용 상품으로 물류창고에서 바로 출고되는 상품입니다. 결제완료일 기준 다음날 한번에 출고 진행됩니다.(주말,공휴일 제외)평일 오전9시 30분 이전 결제완료 시 당일 출고 진행됩니다.
+                              </p>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="layoutBox">
+                              <h3 class="titLayout colorRed">매장 상품배송</h3>
+                              <p class="txtLayout">
+                                오프라인 판매 상품으로 매장에서 바로 출고되는 상품입니다.매장 및 재고 상황에 따라 3~5일 정도 소요될 수 있습니다.
+                                <br/>
+                                여러 상품을 구매하신 경우, 여러 매장에서 개별 배송될 수 있습니다.
+                              </p>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h3 class="titProdInfo">취소/교환/반품 안내</h3>
+                    <table class="tblStyle2">
+                      <tbody>
+                        <tr>
+                          <th scope="row">취소/교환/반품 기간</th>
+                          <td>제품 수령 후 <span class="colorRed">14일 이내</span> 신청하셔야 합니다.</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">취소/교환/반품 주의사항</th>
+                          <td>
+                            아래와 같은 경우에는 취소/교환/반품이 어려울 수 있습니다.
+                            <br/>- 외부 착용을 하신 경우
+                            <br/>- 택(TAG)을 제거한 경우
+                            <br/>- 제품 구성품을 분실한 경우 (사은품, 옷걸이, 여분의 단추, 넥타이 핀 등)
+                            <br/>- 수선을 한 경우
+                            <br/>- 화장품, 땀, 향수 냄새 등 외부 냄새가 묻어있을 경우(수령 후 착용시 제품에 냄새가 배지 않도록 유의바랍니다.)
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">취소방법</th>
+                          <td>출고전인 결제완료 상품은 마이페이지 → 주문배송조회에서 직접 주문취소 가능합니다.</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">교환/반품 방법</th>
+                          <td>
+                            단순 변심으로 교환 및 반품할 경우 구매자 부담 <span class="colorRed">왕복 배송비 5,000원</span>이 발생합니다.
+                            <br/>교환은 동일 금액에 해당하는 상품으로만 교환접수 가능합니다.
+                            <br/>제품 불량으로 인한 교환 시, 동일 상품으로만 교환접수 가능합니다.
+                            <br/>교환 및 반품은 [마이페이지 > 주문조회]에서 접수하셔야 합니다.
+                            <br/>여러 상품을 동시에 교환 및 반품 하실 경우, 온라인배송/매장배송 여부와 관계없이 물류센터로 '합포장 발송'을 해주셔야 합니다.
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">교환절차</th>
+                          <td>교환 상품 배송은 교환하실 상품이 물류창고에 도착 후 진행되며, <span class="colorRed">5~7일 (영업일 기준)</span>이 소요됩니다.</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">반품절차</th>
+                          <td>반품 완료 및 환불은 물류창고에 도착 후 진행되며, <span class="colorRed">3~5일 (영업일 기준)</span>이 소요됩니다.</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">환불안내</th>
+                          <td>
+                            환불 정산액 및 마일리지는 주문취소 완료 후 재적립 됩니다.
+                            <br/><span class="colorRed">환불은 환불 승인일로부터 영업일 기준 3~5일 후</span> 이루어집니다.
+                            <br/>결제 수단별 환불금액 및 일자 확인
+                            <div class="layoutBox">
+                              <h3 class="titLayout colorBlue">신용&체크카드</h3>
+                              <p class="txtLayout">
+                                카드 승인 취소 여부는 카드사를 통해 3~5일(영업일 기준) 후 확인 가능합니다.
+                              </p>
+                            </div>
+                            <div class="layoutBox">
+                              <h3 class="titLayout colorBlue">무통장입금</h3>
+                              <p class="txtLayout">
+                                취소 신청시 남겨주신 계좌번호(은행명)으로 3~5일(영업일 기준) 후 입금됩니다.
+                              </p>
+                            </div>
+                            <div class="layoutBox">
+                              <h3 class="titLayout colorBlue">핸드폰결제</h3>
+                              <p class="txtLayout">
+                                당월 취소 :핸드폰 결제취소 내역을 통해 확인 가능합니다.
+                                <br/>
+                                익월 취소 : 2~4일 (영업일 기준) 후 요청해주신 계좌에서 확인 가능합니다.
+                              </p>
+                            </div>
+                            <div class="layoutBox">
+                              <h3 class="titLayout colorBlue">실시간계좌이체</h3>
+                              <p class="txtLayout">
+                                2~4일 (영업일 기준) 후 요청해주신 계좌에서 확인 가능합니다.
+                              </p>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <script>
+                $(function(){
+                  $('.tabTitBox .tabTit .btnTab').click(function() {
+                    let idx = $(this).index();
+                    $(this).addClass('on').siblings().removeClass('on');
+                    $(this).closest('.tabTitBox').next('.tabContBox').find('.tabCont').eq(idx).addClass('on').siblings().removeClass('on');
+
+                    var tabTitBox = $('.tabTitBox').offset().top;
+                    var tabContBox = $('.tabContBox').offset().top;
+
+                    scrollTarget = tabTitBox  - $('.tabTitBox').outerHeight() ;
+
+                    $('html, body').animate({
+                      scrollTop: scrollTarget
+                    }, 300);
+
+                    return false;
+                  });
+                });
+              </script>
+            </div>
+          </div>
+          <script>
+            $(function(){
+              $('.upDownBox .btnUpDown.up').click(function(){
+                var num = parseInt($(this).html());
+                $(this).html(num + 1);
+                return false;
+              });
+
+              $('.upDownBox .btnUpDown.down').click(function(){
+                var num = parseInt($(this).html());
+                if(num == 0) return false;
+                $(this).html(num - 1);
+                return false;
+              });
+            })
+          </script>
+          <!-- =============================  // dumicode 202403 ========================================= -->
+
+        </div>
+      </div>
+      <!--// container -->
+    </div>
+  </div>
+
+
+  <!-- =============================     dumicode 202403 ========================================= -->
+  <div class="popBox" id="popBlock">
+    <div class="popMask"></div>
+    <div class="popCont popStyle1">
+      <button class="btnClose" onclick="closePop('popBlock')">Close</button>
+      <div class="popHead">
+        <h2 class="titPop">리뷰 작성자 차단</h2>
+      </div>
+      <div class="popBody">
+        <div class="popBlockBox">
+          <p class="txtPop">
+            사용자를 차단하시겠습니까?
+            <br/>
+            이제 상품페이지에서 상대방의 리뷰를 확인 할 수 없습니다.
+          </p>
+          <div class="btnPopBox">
+            <a href="#" class="btnPop style1">확인</a>
+            <a href="#" class="btnPop style2">취소</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popBox" id="popReport">
+    <div class="popMask"></div>
+    <div class="popCont popStyle1">
+      <button class="btnClose" onclick="closePop('popReport')">Close</button>
+      <div class="popHead">
+        <h2 class="titPop">상품리뷰 신고</h2>
+      </div>
+      <div class="popBody">
+        <div class="popReportBox">
+          <div class="formBox">
+            <div class="reasonBox">
+              <h3 class="titReason">신고사유</h3>
+              <div class="reasonRadioBox">
+                <div class="radio radioStyle1">
+                  <input type="radio" name="reasonRadio" id="reasonRadio1" checked/>
+                  <label for="reasonRadio1">욕설/비방</label>
+                </div>
+                <div class="radio radioStyle1">
+                  <input type="radio" name="reasonRadio" id="reasonRadio2"/>
+                  <label for="reasonRadio2">광고/홍보글</label>
+                </div>
+                <div class="radio radioStyle1">
+                  <input type="radio" name="reasonRadio" id="reasonRadio3"/>
+                  <label for="reasonRadio3">개인정보유출</label>
+                </div>
+                <div class="radio radioStyle1">
+                  <input type="radio" name="reasonRadio" id="reasonRadio4"/>
+                  <label for="reasonRadio4">게시글 도배</label>
+                </div>
+                <div class="radio radioStyle1">
+                  <input type="radio" name="reasonRadio" id="reasonRadio5"/>
+                  <label for="reasonRadio5">음란/선정성</label>
+                </div>
+                <div class="radio radioStyle1">
+                  <input type="radio" name="reasonRadio" id="reasonRadio6"/>
+                  <label for="reasonRadio6">기타</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <textarea style="height:150px;" class="textarea" placeholder="위 신고항목에 없거나 추가로 신고하시고자 하는 내용을 적어주세요."></textarea>
+            </div>
+            <div class="row">
+              <p class="notice">신고해주신 내용은 관리자 검토 후 내부 정책에 의거 조치가 진행됩니다.</p>
+            </div>
+          </div>
+          <div class="btnPopBox">
+            <a href="#" class="btnPop style1">확인</a>
+            <a href="#" class="btnPop style2">취소</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popBox" id="popPhotoReview">
+    <div class="popMask"></div>
+    <div class="popCont popStyle2">
+      <button class="btnClose" onclick="closePop('popPhotoReview')">Close</button>
+      <div class="popHead">
+        <h2 class="titPop">상품리뷰 신고</h2>
+        <button class="btnList" onclick="openPop('popPhotoList')">포토리뷰</button>
+      </div>
+      <div class="popBody">
+        <div class="photoReviewBox">
+          <div class="imgBox">
+            <img src="Content/Common/Contents/images/202406/img_photoReview.jpg" alt="" />
+          </div>
+          <div class="photoReview">
+            <div class="layoutTopBox">
+              <div class="starDateBox">
+                <div class="starBox">
+                  <span class="star full"></span>
+                  <span class="star full"></span>
+                  <span class="star full"></span>
+                  <span class="star half"></span>
+                  <span class="star"></span>
+                </div>
+                <p class="date">2022-06-02</p>
+              </div>
+              <ul class="optionBox">
+                <li>
+                  <h3 class="tit">구매 옵션</h3>
+                  <p class="txt">110, 화이트</p>
+                </li>
+                <li>
+                  <h3 class="tit">사이즈 정보</h3>
+                  <p class="txt">178cm, 72kg, 110, 32inch</p>
+                </li>
+              </ul>
+              <div class="tagReviewBox">
+                <div class="tagItem">
+                  <span class="titTag">사이즈</span>
+                  <span class="txtTag">잘맞아요</span>
+                </div>
+                <div class="tagItem">
+                  <span class="titTag">핏</span>
+                  <span class="txtTag">적당해요</span>
+                </div>
+                <div class="tagItem">
+                  <span class="titTag">착용감</span>
+                  <span class="txtTag">불편해요</span>
+                </div>
+              </div>
+              <h3 class="titTel">01085181***</h3>
+              <p class="txtReview">
+                지금 날씨에는 입고 가벼운 아우터 들고 다니면서 입으면 좋을 것 같아요! 배송 도착하고 즐겨 입고 있습니다.제가 입은 팁으로 팔 부분이 길게 느껴진다면 한단한단 접어서 조절해도 좋습니다 :)
+              </p>
+            </div>
+            <div class="layoutToolBox">
+              <div class="upDownBox">
+                <a href="#" class="btnUpDown up">8</a>
+                <a href="#" class="btnUpDown down">1</a>
+              </div>
+
+              <div class="toolBox">
+                <a href="javascript:openPop('popBlock');" class="btnTool">차단</a>
+                <span class="dot">|</span>
+                <a href="javascript:openPop('popReport');" class="btnTool">신고</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popBox" id="popPhotoReviewTop">
+    <div class="popMask"></div>
+    <div class="popCont popStyle2">
+      <button class="btnClose" onclick="closePop('popPhotoReviewTop')">Close</button>
+      <div class="popHead">
+        <h2 class="titPop">상품리뷰 신고</h2>
+      </div>
+      <div class="popBody">
+        <div class="photoReviewBox">
+          <div class="imgBox">
+            <img src="Content/Common/Contents/images/202406/img_photoReview.jpg" alt="" />
+          </div>
+          <div class="photoReview">
+            <div class="layoutTopBox">
+              <div class="starDateBox">
+                <div class="starBox">
+                  <span class="star full"></span>
+                  <span class="star full"></span>
+                  <span class="star full"></span>
+                  <span class="star half"></span>
+                  <span class="star"></span>
+                </div>
+                <p class="date">2022-06-02</p>
+              </div>
+              <ul class="optionBox">
+                <li>
+                  <h3 class="tit">구매 옵션</h3>
+                  <p class="txt">110, 화이트</p>
+                </li>
+                <li>
+                  <h3 class="tit">사이즈 정보</h3>
+                  <p class="txt">178cm, 72kg, 110, 32inch</p>
+                </li>
+              </ul>
+              <div class="tagReviewBox">
+                <div class="tagItem">
+                  <span class="titTag">사이즈</span>
+                  <span class="txtTag">잘맞아요</span>
+                </div>
+                <div class="tagItem">
+                  <span class="titTag">핏</span>
+                  <span class="txtTag">적당해요</span>
+                </div>
+                <div class="tagItem">
+                  <span class="titTag">착용감</span>
+                  <span class="txtTag">불편해요</span>
+                </div>
+              </div>
+              <h3 class="titTel">01085181***</h3>
+              <p class="txtReview">
+                지금 날씨에는 입고 가벼운 아우터 들고 다니면서 입으면 좋을 것 같아요! 배송 도착하고 즐겨 입고 있습니다.제가 입은 팁으로 팔 부분이 길게 느껴진다면 한단한단 접어서 조절해도 좋습니다 :)
+              </p>
+            </div>
+            <div class="layoutToolBox">
+              <div class="upDownBox">
+                <a href="#" class="btnUpDown up">8</a>
+                <a href="#" class="btnUpDown down">1</a>
+              </div>
+
+              <div class="toolBox">
+                <a href="javascript:openPop('popBlock');" class="btnTool">차단</a>
+                <span class="dot">|</span>
+                <a href="javascript:openPop('popReport');" class="btnTool">신고</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popBox" id="popPhotoList">
+    <div class="popMask"></div>
+    <div class="popCont popStyle2">
+      <button class="btnClose" onclick="closePop('popPhotoList')">Close</button>
+      <div class="popHead">
+        <h2 class="titPop">포토리뷰</h2>
+      </div>
+      <div class="popBody">
+        <div class="listPhotoBox">
+          <ul class="listPhotoReview">
+            <li>
+              <a href="javascript:openPop('popPhotoReviewTop')" class="img">
+                <img src="Content/Common/Contents/images/202406/img_pop_photo_list.jpg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:openPop('popPhotoReviewTop')" class="img">
+                <img src="Content/Common/Contents/images/202406/img_pop_photo_list.jpg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:openPop('popPhotoReviewTop')" class="img">
+                <img src="Content/Common/Contents/images/202406/img_pop_photo_list.jpg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:openPop('popPhotoReviewTop')" class="img">
+                <img src="Content/Common/Contents/images/202406/img_pop_photo_list.jpg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:openPop('popPhotoReviewTop')" class="img">
+                <img src="Content/Common/Contents/images/202406/img_pop_photo_list.jpg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:openPop('popPhotoReviewTop')" class="img">
+                <img src="Content/Common/Contents/images/202406/img_pop_photo_list.jpg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:openPop('popPhotoReviewTop')" class="img">
+                <img src="Content/Common/Contents/images/202406/img_pop_photo_list.jpg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:openPop('popPhotoReviewTop')" class="img">
+                <img src="Content/Common/Contents/images/202406/img_pop_photo_list.jpg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:openPop('popPhotoReviewTop')" class="img">
+                <img src="Content/Common/Contents/images/202406/img_pop_photo_list.jpg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:openPop('popPhotoReviewTop')" class="img">
+                <img src="Content/Common/Contents/images/202406/img_pop_photo_list.jpg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:openPop('popPhotoReviewTop')" class="img">
+                <img src="Content/Common/Contents/images/202406/img_pop_photo_list.jpg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:openPop('popPhotoReviewTop')" class="img">
+                <img src="Content/Common/Contents/images/202406/img_pop_photo_list.jpg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:openPop('popPhotoReviewTop')" class="img">
+                <img src="Content/Common/Contents/images/202406/img_pop_photo_list.jpg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:openPop('popPhotoReviewTop')" class="img">
+                <img src="Content/Common/Contents/images/202406/img_pop_photo_list.jpg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:openPop('popPhotoReviewTop')" class="img">
+                <img src="Content/Common/Contents/images/202406/img_pop_photo_list.jpg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:openPop('popPhotoReviewTop')" class="img">
+                <img src="Content/Common/Contents/images/202406/img_pop_photo_list.jpg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:openPop('popPhotoReviewTop')" class="img">
+                <img src="Content/Common/Contents/images/202406/img_pop_photo_list.jpg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="javascript:openPop('popPhotoReviewTop')" class="img">
+                <img src="Content/Common/Contents/images/202406/img_pop_photo_list.jpg" alt="" />
+              </a>
+            </li>  
+          </ul>
+          <div class="pageBox">
+            <a href="#" class="btnPrev">Prev</a>
+            <a href="#" class="btnPage">1</a>
+            <a href="#" class="btnPage">2</a>
+            <a href="#" class="btnPage">3</a>
+            <a href="#" class="btnPage">4</a>
+            <a href="#" class="btnPage">5</a>
+            <a href="#" class="btnPage">6</a>
+            <a href="#" class="btnPage">7</a>
+            <a href="#" class="btnPage">8</a>
+            <a href="#" class="btnPage">9</a>
+            <a href="#" class="btnPage">10</a>
+            <a href="#" class="btnNext">Next</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popBox" id="popQaWrite">
+    <div class="popMask"></div>
+    <div class="popCont popStyle1">
+      <button class="btnClose" onclick="closePop('popQaWrite')">Close</button>
+      <div class="popHead">
+        <h2 class="titPop">Q&A 상품문의</h2>
+      </div>
+      <div class="popBody">
+        <div class="popQaWriteBox">
+          <p class="popTip">
+            · 궁금하신 사항은 무엇이든 문의주세요.
+            <br/>
+            · 주문/배송/교환/환불/불량 등의 문의는 <span class="colorRed">1:1 문의</span>를 이용해주세요
+          </p>
+          <h3 class="tit">※ 사이즈 추천 문의와 관련하여</h3>
+          <p class="txt">
+            동일한 신장/체충이라도 체형에 따라 사이즈가 다를실 수 있습니다.
+            <br/>
+            신장/체중으로는 정확한 추천이 어렵습니다. 가지고 계신 옷과 상세페이지 하단 실측 사이즈표를 비교하시면 가장 잘맞는 사이즈를 찾으실 수 있습니다.
+          </p>
+          <div class="formBox">
+            <div class="row">
+              <input type="text" class="text" placeholder="문의하실 제목을 입력해주세요."/>
+            </div>
+            <div class="row">
+              <textarea class="textarea" placeholder="문의하실 내용을 입력해주세요." style="height:180px;"></textarea>
+            </div>
+            <div class="row">
+              <div class="checkBoxStyle1">
+                <input type="checkbox" name="chkPublic" id="chkPublic">
+                <label for="chkPublic">비공개 문의</label>
+              </div>
+            </div>
+            <div class="btnPopBox">
+              <a href="#" class="btnPop style1">문의등록</a>
+              <a href="#" class="btnPop style2">취소</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- =============================  // dumicode 202403 ========================================= -->
+
+ <div class="page footer">
+        <div class="contents">
+          <div class="left">
+            <p>회사명 : (주)에스티오</p>
+            <p>대표자 : 김흥수 / 서울시 강서구 양천로 583 우림블루나인비지니스센터 B동 15층 / 사업자등록번호 : 206-81-79031</p>
+            <p>통신판매업신고 : 제2009 서울강서 0684호 / 개인정보관리책임자 : 안중태</p>
+            <p>대표메일주소 : stoonline@stco.co.kr / 대표번호 : 070-4687-7342</p>
+
+            <p style="margin-top: 40px">Copyright ⓒ STCO. All right reserved</p>
+
+            <ul>
+              <li>
+                <a href="https://pf.kakao.com/_LEXqC" target="_blank"> <img class="icons" src="https://image.codigallery.com/all_img/stcomall/2021/main/210420_newheader/kakaoplus.png" alt="카카오플러스" /> Kakao Plus </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UCz0zCwb6r1lgoAOSvlg1HFg" target="_blank"> <img class="icons" src="https://image.codigallery.com/all_img/stcomall/2021/main/210420_newheader/youtube.png" alt="유투브" /> Youtube </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/stco_official/" target="_blank"> <img class="icons" src="https://image.codigallery.com/all_img/stcomall/2021/main/210420_newheader/instagram.png" alt="인스타그램" /> Instagram </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/thestco" target="_blank"> <img class="icons" src="https://image.codigallery.com/all_img/stcomall/2021/main/210420_newheader/facebook.png" alt="페이스북" /> Facebook </a>
+              </li>
+            </ul>
+          </div>
+          <div class="right">
+            <ul class="link_list1">
+              <li class="head">ABOUT</li>
+              <li><a href="http:http://www.thesto.kr/">회사소개</a></li>
+              <li><a href="/Rules/Policy">이용약관</a></li>
+              <li><a href="/Rules/Privacy3">개인정보처리방침</a></li>
+              <li><a href="http:http://www.thesto.kr/recruit/apply" target="_blank">채용정보</a></li>
+              <li><a href="javascript:void(0);" onclick="onopen();return false;">사업자정보확인</a></li>
+              <li><a href="#" onclick="javascript:window.open('https://mark.inicis.com/mark/escrow_popup_v3.php?mid=codigall01','mark','scrollbars=no,resizable=no,width=565,height=683');">에스크로가입확인</a></li>
+            </ul>
+
+            <ul class="link_list2">
+              <li class="head">HELP</li>
+              <li><a href="javascript:Login('out');">로그아웃</a></li>
+              <li><a href="/Nmypage">주문배송조회</a></li>
+              <li><a href="/Nmypage">비회원 주문조회</a></li>
+              <li><a href="/Nmypage">교환/반품 신청</a></li>
+              <li><a href="/Community/Home/Counsel">입점/제휴문의</a></li>
+              <li><a href="/Community/Home/Counsel">1 : 1 문의</a></li>
+              <li><a href="/Community/Home/FaqList">FAQ</a></li>
+              <li><a href="/Community/Home/InquiryOpenStore">매장 개설 문의</a></li>
+            </ul>
+
+            <ul class="link_list3">
+              <li class="head">070-4687-7342</li>
+              <li class="worktime">업무시간 : 평일 10:00 - 17:00</li>
+              <li class="worktime">점심시간 : 평일 12:00 – 13:00</li>
+              <li class="worktime">(토, 일, 공휴일 휴무)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="dim"></div>
+      <!--//foot -->
+    </div>
+</body>
+</html>
