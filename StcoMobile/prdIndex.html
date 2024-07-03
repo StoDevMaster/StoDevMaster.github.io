@@ -79,6 +79,7 @@
             </ul>
         </section>
 
+        <a href="javascript:;" class="go_back"><img src="./Common/images/layout/btn_back.png" alt="" /></a>
         <a href="javascript:goTop();" class="go_top"><img src="./Common/images/layout/btn_top.png" alt="" /></a>
 
         <style>
@@ -678,27 +679,30 @@
                                 <div class="swiper-slide">
                                     <a href="#" class="img" style="background-image: url(Common/Contents/images/202406/img_main_visual_01.jpg);"></a>
                                 </div>
+                                <div class="swiper-slide">
+                                    <a href="#" class="img" style="background-image: url(Common/Contents/images/202406/img_main_visual_01.jpg);"></a>
+                                </div>
                             </div>
                         </div>
                         <div class="swiper-container swpMainVisualThumbs">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <a href="#" class="img" style="background-image: url(Common/Contents/images/202406/img_main_visual_01.jpg);"></a>
+                                    <span class="img" style="background-image: url(Common/Contents/images/202406/img_main_visual_01.jpg);"></span>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="#" class="img" style="background-image: url(Common/Contents/images/202406/img_main_visual_01.jpg);"></a>
+                                    <span class="img" style="background-image: url(Common/Contents/images/202406/img_main_visual_01.jpg);"></span>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="#" class="img" style="background-image: url(Common/Contents/images/202406/img_main_visual_01.jpg);"></a>
+                                    <span class="img" style="background-image: url(Common/Contents/images/202406/img_main_visual_01.jpg);"></span>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="#" class="img" style="background-image: url(Common/Contents/images/202406/img_main_visual_01.jpg);"></a>
+                                    <span class="img" style="background-image: url(Common/Contents/images/202406/img_main_visual_01.jpg);"></span>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="#" class="img" style="background-image: url(Common/Contents/images/202406/img_main_visual_01.jpg);"></a>
+                                    <span class="img" style="background-image: url(Common/Contents/images/202406/img_main_visual_01.jpg);"></span>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="#" class="img" style="background-image: url(Common/Contents/images/202406/img_main_visual_01.jpg);"></a>
+                                    <span class="img" style="background-image: url(Common/Contents/images/202406/img_main_visual_01.jpg);"></span>
                                 </div>
                             </div>
                         </div>
@@ -709,7 +713,6 @@
                                     freeMode: true,
                                     spaceBetween: 1,
                                     slidesPerView: 5,
-                                    watchSlidesProgress: true,
                                 });
 
                                 var swpMainVisual = new Swiper('.swpMainVisual', {
@@ -757,6 +760,19 @@
                             </p>
                             <a href="javascript:void(0);" class="btnDiscount">묶음할인 가능한 상품 모두 보기</a>
                         </div>
+                        <!-- 추가 -->
+                        <div class="discountBoxStyle2">
+                            <h3 class="titDiscount">본 상품은 단품구매 가능한 상품입니다.</h3>
+                            <dl class="dlDiscount">
+                                <dt>자켓</dt>
+                                <dd>129,000원</dd>
+                            </dl>
+                            <dl class="dlDiscount">
+                                <dt>팬츠</dt>
+                                <dd>70,000원</dd>
+                            </dl>
+                        </div>
+                        <!--// 추가 -->
                         <p class="prodIntro">
                             가장 많이 활용하는 베지직 라운드 티셔츠 2장 묶음 PACK 구성 입니다.면 100% 소재로 소프트한 터치감의 코마사 사용하였습니다.
                         </p>
@@ -1009,6 +1025,35 @@
                             })
                         </script>
                     </div>
+
+                    <!-- ad추가 -->
+                    <div class="ad_bn_swiper swiper-container">
+                        <ul class="swiper-wrapper">
+                          <li class="swiper-slide"><a href="#"><img src="Common/images/detail/img_bn_sample01.jpg" alt=""></a></li>
+                          <li class="swiper-slide"><a href="#"><img src="Common/images/detail/img_bn_sample01.jpg" alt=""></a></li>
+                          <li class="swiper-slide"><a href="#"><img src="Common/images/detail/img_bn_sample01.jpg" alt=""></a></li>
+                          <li class="swiper-slide"><a href="#"><img src="Common/images/detail/img_bn_sample01.jpg" alt=""></a></li>
+                          <li class="swiper-slide"><a href="#"><img src="Common/images/detail/img_bn_sample01.jpg" alt=""></a></li>
+                        </ul>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                      </div>
+                      
+                      <script>
+                        $(function(){
+                          var adBnSwp =  new Swiper('.ad_bn_swiper', { 
+                            navigation: {
+                              nextEl: '.ad_bn_swiper .swiper-button-next',
+                              prevEl: '.ad_bn_swiper .swiper-button-prev',
+                            },
+                            autoplay: {
+                              delay: 2000,
+                              disableOnInteraction: false,
+                            },
+                          })
+                        })
+                      </script>
+                    <!--// ad추가 -->
                 </div>
                 <div class="prodDetailTabBox">
                     <div class="tabTitBox">
@@ -1019,6 +1064,27 @@
                             <a href="#prodShipping" data-tab="prodShipping" class="btnTab">배송/교환/반품</a>
                         </div>
                     </div>
+                    <!-- test 애커메뉴 -->
+                     <div style="height: 500px; background: #000; padding: 20px;">
+                        <a href="javascript:anchorSlideTo('detailSec1')" style="color: #fff; font-size: 20px;">앵커메뉴1</a>
+                     </div>
+                     <script>
+                        function anchorSlideTo(anchorID) {
+                            const targetElement = document.getElementById(anchorID);
+                            const offset = $('.gnb_nav2').outerHeight() + $('.tabTitBox .tabTit').outerHeight(); // 상단 높이만큼의 간격
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - offset;
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                     </script>
+
+                    <div id="detailSec1" style="height: 600px; margin-top: 200px; border: 5px solid #000; background: blue; color: #fff; font-size: 20px;">
+                        앵커 컨텐츠 영역
+                    </div>
+                    <!--// test 애커메뉴 -->
                     <div class="tabContBox">
                         <div id="prodInfo" class="tabCont on prodInfo">
                             <div class="prodInfoItem">

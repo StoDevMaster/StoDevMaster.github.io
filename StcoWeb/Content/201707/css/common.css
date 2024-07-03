@@ -266,10 +266,9 @@ url(/Content/201701/common/font/Lato-Regular.woff) format('woff')
 .col3 .prd_list_item {width:460px;}
 .prd_list_item:hover {z-index:5;}
 .prd_list_item .best_num {display:block; position:absolute; top:0; left:0; width:36px; height:36px; background:#121212; color:#fff; font-size:16px; line-height:36px; text-align:center;}
-.prd_list_item .img {display:block; width:460px;}
+.prd_list_item .img {display:block; position: relative; width: 100%; height: 0; padding-bottom: 150%;}
 /*����� ũ�� ������� ���� 20-02-19 �¶��ο����� ������*/
-.prd_list_item .img img {width:345px;}
-.col3 .prd_list_item .img img {width:460px;}
+.prd_list_item .img > img {position: absolute; top: 0; left: 0; width:100% !important; height: 100% !important; object-fit: cover;}
 .prd_list_item .txt .colors {width:348px; min-height:42px; margin-left:-4px; padding-top:10px; overflow:hidden; max-height:42px; }
 .prd_list_item .txt .colors li {float:left; width:54px; height:12px; margin:4px 0 0 4px;}
 .prd_list_item .txt .colors li img {width:54px; height:12px; vertical-align:top;}

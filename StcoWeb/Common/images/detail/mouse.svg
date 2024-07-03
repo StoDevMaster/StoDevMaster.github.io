@@ -1,0 +1,9 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path d="M19.5 30h21M30 19.5v21" id="sbcek992va"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <circle fill="#131922" opacity=".28" cx="30" cy="30" r="30"/>
+        <use stroke="#FFF" xlink:href="#sbcek992va"/>
+    </g>
+</svg>
