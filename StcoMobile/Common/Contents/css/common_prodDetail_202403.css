@@ -105,7 +105,7 @@
 .prodDetailTopWrap .prodOptionBox .listOptionDetail li .optionDetailBox .numBox .btnUp { display: block; width: 10px; height: 10px; background: url(../images/202406/icon_up.png) no-repeat center center/13px; text-indent: -999px; overflow: hidden; } 
 .prodDetailTopWrap .prodOptionBox .listOptionDetail li .optionDetailBox .numBox .textNum { width:30px; height:30px; border:none; color: #8f8f8f; font-size: 15px; line-height: 17px; font-weight: 400; text-align: center; background:transparent; } 
 .prodDetailTopWrap .prodOptionBox .listOptionDetail li .optionDetailBox .txtPrice { color: #8f8f8f; font-size: 15px; line-height: 17px; font-weight: 400; } 
-.prodDetailTopWrap .prodOptionBox .listOptionDetail li .optionDetailBox .btnDel { position: absolute; top:50%; right:7px; width: 17px; height: 17px; margin-top: -8.5px; background: url(../images/202406/btn_del_list.png) no-repeat center center/100%; text-indent: -999px; overflow: hidden; } 
+.prodDetailTopWrap .prodOptionBox .listOptionDetail li .optionDetailBox .btnDel { position: absolute; top:50%; right:7px; width: 17px; height: 17px; margin-top: -8.5px; background: url(../202406/images/btn_del_list.png) no-repeat center center/100%; text-indent: -999px; overflow: hidden; } 
 .prodDetailTopWrap .prodOptionBox .totalPriceBox { display: flex; justify-content: space-between; align-items: end; margin-top: 20px; } 
 .prodDetailTopWrap .prodOptionBox .totalPriceBox .titTotalPrice { color: #000000; font-size: 17px; line-height: 19px; font-weight: 400; } 
 .prodDetailTopWrap .prodOptionBox .totalPriceBox .txtTotalPrice { color: #cf152d; font-size: 24px; line-height: 26px; font-weight: 700; } 

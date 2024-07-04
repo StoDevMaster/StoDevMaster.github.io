@@ -380,6 +380,11 @@ body.fixed_top {padding-top: 88px;}
 .category_list2 .category_tab li { float: left; }
 .category_list2 .category_tab li a { display: inline-block; padding: 0 20px; font-size: .9em; color: #a5a5a5; }
 .category_list2 .category_tab li.on a { color: #121212; }
+.category_list2 .category_sort { display: flex; justify-content: flex-end; padding: 0 44px; margin-top: -28px; line-height: 28px;  }
+.category_list2 .category_sort ul { display: flex; }
+.category_list2 .category_sort ul li { margin-left: 16px; }
+.category_list2 .category_sort ul li a { color: #aaa; font-size: 16px; line-height: 28px; font-weight: 400;}
+.category_list2 .category_sort ul li.on a { color: #010101;}
 .category_list2 .select_box { position: absolute; right: 12px; bottom: 0; font-size: .7em;  }
 .category_list2 .select_box a { position: relative; color: #666; }
 .category_list2 .select_box > a { padding-right: 15px; }
