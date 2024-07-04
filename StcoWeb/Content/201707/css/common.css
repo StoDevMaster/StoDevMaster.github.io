@@ -427,7 +427,7 @@ url(/Content/201701/common/font/Lato-Regular.woff) format('woff')
 .category_banner .swiper-button-prev {position:absolute; top:50%; left:10%; width:50px; height:90px; margin-top:-45px; background:url('/Content/201807/images/temp/btn_visual_prev.png') no-repeat center center; text-indent:-999px; overflow:hidden; z-index:10;}
 .category_banner .swiper-button-next {position:absolute; top:50%; right:10%; width:50px; height:90px; margin-top:-45px; background:url('/Content/201807/images/temp/btn_visual_next.png') no-repeat center center; text-indent:-999px; overflow:hidden; z-index:10;}
 
-.category_tab {width:1400px; margin:25px auto 0; overflow:hidden;}
+.category_tab {width:1400px; margin:10px auto 0; overflow:hidden;}
 .category_tab ul {overflow:hidden;}
 .category_tab ul li {float:left; width:171px; margin:5px 0 0 5px;}
 .category_tab ul li:nth-child(8n+1) {width:168px; margin-left:0;}
