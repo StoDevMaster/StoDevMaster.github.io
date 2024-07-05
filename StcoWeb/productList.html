@@ -668,12 +668,14 @@
             $(".prdimage")
               .on("mouseover", function () {
                 var img = $(this).attr("rel").split("^")[1];
-                img = "http://image.codigallery.com" + img + "?RS=341x338";
+               // img = "http://image.codigallery.com" + img + "?RS=341x338";
+				img = img + "?RS=341x338";
                 $(this).css("background-image", "url(" + img + ")");
               })
               .mouseout(function () {
                 var img = $(this).attr("rel").split("^")[0];
-                img = "http://image.codigallery.com" + img + "?RS=341x338";
+                //img = "http://image.codigallery.com" + img + "?RS=341x338";
+				img = img + "?RS=341x338";
                 $(this).css("background-image", "url(" + img + ")");
               });
           });
@@ -754,7 +756,8 @@
               <ul class="best_item_contents on">
                 <li>
                   <a href="/detail/index/SEJVZ78SET">
-                    <span class="thumb prdimage" style="background-image: url('http://image.codigallery.com/stco/2024/ss/main/SEJVZ78OSC_m0.jpg?RS=341x338')" rel="/stco/2024/ss/main/SEJVZ78OSC_m0.jpg^/stco/2024/ss/main/SEPVZ78WSC_m0.jpg">
+                    <!--<span class="thumb prdimage" style="background-image: url('http://image.codigallery.com/stco/2024/ss/main/SEJVZ78OSC_m0.jpg?RS=341x338')" rel="/stco/2024/ss/main/SEJVZ78OSC_m0.jpg^/stco/2024/ss/main/SEPVZ78WSC_m0.jpg">-->
+					<span class="thumb prdimage" style="background-image: url('./testImg/mcut/DDSVA07CTL_m1.jpg')" rel="./testImg/mcut/DDSVA07CTL_m1.jpg^./testImg/mcut/DDSVA07CTL_m0.jpg">
                       <div class="badgebox">
                           <img src="./Common/images/list/ico_badge01.jpg" alt="">
                           <img src="./Common/images/list/ico_badge02.jpg" alt="">
@@ -773,7 +776,7 @@
                 </li>
                 <li>
                   <a href="/detail/index/SEJVZ77SET">
-                    <span class="thumb prdimage" style="background-image: url('http://image.codigallery.com/stco/2024/ss/main/SEJVZ77OSB_m10.jpg?RS=341x338')" rel="/stco/2024/ss/main/SEJVZ77OSB_m10.jpg^/stco/2024/ss/main/SEJVZ77OSB_m0.jpg"></span>
+                    <span class="thumb prdimage" style="background-image: url('./testImg/mcut/DJAVB21CSN_m1.jpg')" rel="./testImg/mcut/DJAVB21CSN_m1.jpg^./testImg/mcut/DJAVB21CSN_m0.jpg"></span>
 
                     <div class="color_wrap"></div>
                     <strong class="txt_brand"> STCO </strong>
@@ -791,7 +794,7 @@
                 </li>
                 <li>
                   <a href="/detail/index/SEJVZ76SET">
-                    <span class="thumb prdimage" style="background-image: url('http://image.codigallery.com/stco/2024/ss/main/SEJVZ76OSD_m10.jpg?RS=341x338')" rel="/stco/2024/ss/main/SEJVZ76OSD_m10.jpg^/stco/2024/ss/main/SEJVZ76OSD_m0.jpg"></span>
+                    <span class="thumb prdimage" style="background-image: url('./testImg/mcut/DJAVB31CSI_m0.jpg')" rel="./testImg/mcut/DJAVB31CSI_m0.jpg^./testImg/mcut/DJAVB31CSI_m1.jpg"></span>
 
                     <div class="color_wrap"></div>
                     <strong class="txt_brand"> STCO </strong>
@@ -805,7 +808,7 @@
                 </li>
                 <li>
                   <a href="/detail/index/SEJVZ75SET">
-                    <span class="thumb prdimage" style="background-image: url('http://image.codigallery.com/stco/2024/ss/main/SEJVZ75OSC_m10.jpg?RS=341x338')" rel="/stco/2024/ss/main/SEJVZ75OSC_m10.jpg^/stco/2024/ss/main/SEJVZ75OSC_m0.jpg"></span>
+                    <span class="thumb prdimage" style="background-image: url('./testImg/mcut/DJAVB32CSC_m0.jpg')" rel="./testImg/mcut/DJAVB32CSC_m0.jpg^./testImg/mcut/DJAVB32CSC_m1.jpg"></span>
 
                     <div class="color_wrap"></div>
                     <strong class="txt_brand"> STCO </strong>
@@ -819,7 +822,7 @@
                 </li>
                 <li>
                   <a href="/detail/index/SEJVZ74SET">
-                    <span class="thumb prdimage" style="background-image: url('http://image.codigallery.com/stco/2024/ss/main/SEJVZ74OSB_m10.jpg?RS=341x338')" rel="/stco/2024/ss/main/SEJVZ74OSB_m10.jpg^/stco/2024/ss/main/SEJVZ74OSB_m0.jpg"></span>
+                    <span class="thumb prdimage" style="background-image: url('./testImg/mcut/DJAVB33CSN_m1.jpg')" rel="./testImg/mcut/DJAVB33CSN_m1.jpg^./testImg/mcut/DJAVB33CSN_m0.jpg"></span>
 
                     <div class="color_wrap"></div>
                     <strong class="txt_brand"> STCO </strong>
@@ -833,7 +836,7 @@
                 </li>
                 <li>
                   <a href="/detail/index/SEJVZ73SET">
-                    <span class="thumb prdimage" style="background-image: url('http://image.codigallery.com/stco/2024/ss/main/SEJVZ73NSD_m0.jpg?RS=341x338')" rel="/stco/2024/ss/main/SEJVZ73NSD_m0.jpg^/stco/2024/ss/main/SEPVZ73TSD_m0.jpg"></span>
+                    <span class="thumb prdimage" style="background-image: url('./testImg/mcut/DTSVB11CSL_m1.jpg')" rel="./testImg/mcut/DTSVB11CSL_m1.jpg^./testImg/mcut/DTSVB11CSL_m0.jpg"></span>
 
                     <div class="color_wrap"></div>
                     <strong class="txt_brand"> STCO </strong>
@@ -847,7 +850,7 @@
                 </li>
                 <li>
                   <a href="/detail/index/SEJVZ72SET">
-                    <span class="thumb prdimage" style="background-image: url('http://image.codigallery.com/stco/2024/ss/main/SEJVZ72NSC_m0.jpg?RS=341x338')" rel="/stco/2024/ss/main/SEJVZ72NSC_m0.jpg^/stco/2024/ss/main/SEPVZ72TSC_m0.jpg"></span>
+                    <span class="thumb prdimage" style="background-image: url('./testImg/prdcut/DDSVC02CCO_m.jpg')" rel="./testImg/prdcut/DDSVC02CCO_m.jpg^./testImg/prdcut/DDSVC02CCO_m.jpg"></span>
 
                     <div class="color_wrap"></div>
                     <strong class="txt_brand"> STCO </strong>
@@ -861,7 +864,7 @@
                 </li>
                 <li>
                   <a href="/detail/index/SEJVZ71SET">
-                    <span class="thumb prdimage" style="background-image: url('http://image.codigallery.com/stco/2024/ss/main/SEJVZ71NSB_m1.jpg?RS=341x338')" rel="/stco/2024/ss/main/SEJVZ71NSB_m1.jpg^/stco/2024/ss/main/SEPVZ71TSB_m1.jpg"></span>
+                    <span class="thumb prdimage" style="background-image: url('./testImg/prdcut/DDSVC01CSG_m.jpg')" rel="./testImg/prdcut/DDSVC01CSG_m.jpg^./testImg/prdcut/DDSVC01CSG_m.jpg"></span>
 
                     <div class="color_wrap"></div>
                     <strong class="txt_brand"> STCO </strong>
