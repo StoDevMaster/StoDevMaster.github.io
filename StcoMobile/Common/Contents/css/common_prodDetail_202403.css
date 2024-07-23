@@ -34,9 +34,11 @@
 .swpMainVisual .swiper-slide .img { display: block; width:100%; height: 0; padding-bottom: 150%; background-repeat: no-repeat; background-position: center center; background-size:cover; } 
 .swpMainVisualThumbs { display: flex; align-items: center; padding-bottom: 6px; border-top:1px solid #FFF; border-bottom:1px solid #FFF; } 
 .swpMainVisualThumbs::before {content:''; position: absolute; right: 0; bottom: 0; left: 0; height: 2px; background: #d2d2d2;}
-.swpMainVisualThumbs .swiper-slide {position: relative;}
+.swpMainVisualThumbs .swiper-slide {position: relative; height: auto;}
 .swpMainVisualThumbs .swiper-slide-thumb-active::after { content:''; position: absolute; right: 0; bottom: -6px; left: 0; height: 2px; background: #000; } 
 .swpMainVisualThumbs .img { display: block; width: 100%; padding-bottom: 150%; background-repeat: no-repeat; background-position: center center; background-size:cover; } 
+.swpMainVisualThumbs .swiper-slide.none { pointer-events: none; }
+.swpMainVisualThumbs .swiper-slide.none .img { background: #d2d2d2; }
 
 .prodDetailTopWrap .bindBox { display: flex; justify-content: space-between; align-items: center; height:40px; padding:0 12px; background: #1c1c1c; } 
 .prodDetailTopWrap .bindBox .titBind { color:#FFF; font-size: 15px; line-height: 17px; font-weight: 400; } 

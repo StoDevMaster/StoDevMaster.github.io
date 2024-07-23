@@ -319,6 +319,8 @@
 .swpMainVisualThumbs .swiper-slide-thumb-active::after { content:''; position: absolute; left: -6px; top:0; bottom: 0; width: 3px; background: #000; } 
 .swpMainVisualThumbs .img { display: block; position: relative; width: 100%; padding-bottom: 140px; background-repeat: no-repeat; background-position: center center; background-size:cover; } 
 .swpMainVisualThumbs .img::after {content:''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: rgba(255, 255, 255, 0.6);}
+.swpMainVisualThumbs .swiper-slide.none { pointer-events: none; }
+.swpMainVisualThumbs .swiper-slide.none .img { background: #d2d2d2; }
 .swpMainVisualThumbs .swiper-slide-thumb-active .img::after {display: none;}
 
 

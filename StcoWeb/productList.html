@@ -610,13 +610,13 @@
       <div id="container" class="container">
         <style type="text/css">
           .swp_banner .swiper-button-prev {
-            background: url(Common/images/201908/image/btn_swp_prev.png) no-repeat center center/100%;
+            background: url(/Areas/mobile/Common/images/201908/image/btn_swp_prev.png) no-repeat center center/100%;
             transform: translateY(-50%);
             outline: none;
           }
 
           .swp_banner .swiper-button-next {
-            background: url(Common/images/201908/image/btn_swp_next.png) no-repeat center center/100%;
+            background: url(/Areas/mobile/Common/images/201908/image/btn_swp_next.png) no-repeat center center/100%;
             transform: translateY(-50%);
             outline: none;
           }
@@ -668,14 +668,12 @@
             $(".prdimage")
               .on("mouseover", function () {
                 var img = $(this).attr("rel").split("^")[1];
-               // img = "http://image.codigallery.com" + img + "?RS=341x338";
-				img = img + "?RS=341x338";
+                img = "http://image.codigallery.com" + img + "?RS=341x338";
                 $(this).css("background-image", "url(" + img + ")");
               })
               .mouseout(function () {
                 var img = $(this).attr("rel").split("^")[0];
-                //img = "http://image.codigallery.com" + img + "?RS=341x338";
-				img = img + "?RS=341x338";
+                img = "http://image.codigallery.com" + img + "?RS=341x338";
                 $(this).css("background-image", "url(" + img + ")");
               });
           });
@@ -686,40 +684,6 @@
         </script>
 
         <div class="category_wrap">
-		<div class="swp_banner codi_swp" style="text-align:center">
-			<div class="swiper-container swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden" style="width:100%">
-				<div class="swiper-wrapper" id="swiper-wrapper-8446811f102355b94" aria-live="off" style="transform: translate3d(-3806px, 0px, 0px); transition-duration: 0ms;">
-					<div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="1" role="group" aria-label="2 / 2" style="width: 1903px;">
-						<div class="img">
-							<img src="https://webimg.codigallery.com//UploadFolder/202404/240404_event_shirts_w.jpg" style="width:100%; " alt="Smart work">
-						</div>
-					</div>
-					<div class="swiper-slide swiper-slide-prev swiper-slide-duplicate-next" data-swiper-slide-index="0" role="group" aria-label="1 / 2" style="width: 1903px;">
-						<div class="img">
-							<a href="/Event/ProductPlanSp/19472"><img src="https://webimg.codigallery.com//UploadFolder/202407/240703_event_shirts_w.jpg" style="width:100%;" alt="Smart work"></a>
-						</div>
-					</div>
-					<div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1" role="group" aria-label="2 / 2" style="width: 1903px;">
-						<div class="img">
-							<img src="https://webimg.codigallery.com//UploadFolder/202404/240404_event_shirts_w.jpg" style="width:100%; " alt="Smart work">
-						</div>
-					</div>
-					<div class="swiper-slide swiper-slide-duplicate swiper-slide-next swiper-slide-duplicate-prev" data-swiper-slide-index="0" role="group" aria-label="1 / 2" style="width: 1903px;">
-						<div class="img">
-							<a href="/Event/ProductPlanSp/19472"><img src="https://webimg.codigallery.com//UploadFolder/202407/240703_event_shirts_w.jpg" style="width:100%;" alt="Smart work"></a>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
-					<span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 2" aria-current="true"></span>
-				</div>
-				<div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-8446811f102355b94">
-				</div>
-				<div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-8446811f102355b94">
-				</div>
-				<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-			</div>
-		</div>
           <a name="allItem"></a>
           <div class="category_list2">
             <div class="contents wid_auto">
@@ -756,8 +720,7 @@
               <ul class="best_item_contents on">
                 <li>
                   <a href="/detail/index/SEJVZ78SET">
-                    <!--<span class="thumb prdimage" style="background-image: url('http://image.codigallery.com/stco/2024/ss/main/SEJVZ78OSC_m0.jpg?RS=341x338')" rel="/stco/2024/ss/main/SEJVZ78OSC_m0.jpg^/stco/2024/ss/main/SEPVZ78WSC_m0.jpg">-->
-					<span class="thumb prdimage" style="background-image: url('./testImg/mcut/DDSVA07CTL_m1.jpg')" rel="./testImg/mcut/DDSVA07CTL_m1.jpg^./testImg/mcut/DDSVA07CTL_m0.jpg">
+                    <span class="thumb prdimage" style="background-image: url('http://image.codigallery.com/stco/2024/ss/main/SEJVZ78OSC_m0.jpg?RS=341x338')" rel="/stco/2024/ss/main/SEJVZ78OSC_m0.jpg^/stco/2024/ss/main/SEPVZ78WSC_m0.jpg">
                       <div class="badgebox">
                           <img src="./Common/images/list/ico_badge01.jpg" alt="">
                           <img src="./Common/images/list/ico_badge02.jpg" alt="">
@@ -776,7 +739,7 @@
                 </li>
                 <li>
                   <a href="/detail/index/SEJVZ77SET">
-                    <span class="thumb prdimage" style="background-image: url('./testImg/mcut/DJAVB21CSN_m1.jpg')" rel="./testImg/mcut/DJAVB21CSN_m1.jpg^./testImg/mcut/DJAVB21CSN_m0.jpg"></span>
+                    <span class="thumb prdimage" style="background-image: url('http://image.codigallery.com/stco/2024/ss/main/SEJVZ77OSB_m10.jpg?RS=341x338')" rel="/stco/2024/ss/main/SEJVZ77OSB_m10.jpg^/stco/2024/ss/main/SEJVZ77OSB_m0.jpg"></span>
 
                     <div class="color_wrap"></div>
                     <strong class="txt_brand"> STCO </strong>
@@ -794,7 +757,7 @@
                 </li>
                 <li>
                   <a href="/detail/index/SEJVZ76SET">
-                    <span class="thumb prdimage" style="background-image: url('./testImg/mcut/DJAVB31CSI_m0.jpg')" rel="./testImg/mcut/DJAVB31CSI_m0.jpg^./testImg/mcut/DJAVB31CSI_m1.jpg"></span>
+                    <span class="thumb prdimage" style="background-image: url('http://image.codigallery.com/stco/2024/ss/main/SEJVZ76OSD_m10.jpg?RS=341x338')" rel="/stco/2024/ss/main/SEJVZ76OSD_m10.jpg^/stco/2024/ss/main/SEJVZ76OSD_m0.jpg"></span>
 
                     <div class="color_wrap"></div>
                     <strong class="txt_brand"> STCO </strong>
@@ -808,7 +771,7 @@
                 </li>
                 <li>
                   <a href="/detail/index/SEJVZ75SET">
-                    <span class="thumb prdimage" style="background-image: url('./testImg/mcut/DJAVB32CSC_m0.jpg')" rel="./testImg/mcut/DJAVB32CSC_m0.jpg^./testImg/mcut/DJAVB32CSC_m1.jpg"></span>
+                    <span class="thumb prdimage" style="background-image: url('http://image.codigallery.com/stco/2024/ss/main/SEJVZ75OSC_m10.jpg?RS=341x338')" rel="/stco/2024/ss/main/SEJVZ75OSC_m10.jpg^/stco/2024/ss/main/SEJVZ75OSC_m0.jpg"></span>
 
                     <div class="color_wrap"></div>
                     <strong class="txt_brand"> STCO </strong>
@@ -822,7 +785,7 @@
                 </li>
                 <li>
                   <a href="/detail/index/SEJVZ74SET">
-                    <span class="thumb prdimage" style="background-image: url('./testImg/mcut/DJAVB33CSN_m1.jpg')" rel="./testImg/mcut/DJAVB33CSN_m1.jpg^./testImg/mcut/DJAVB33CSN_m0.jpg"></span>
+                    <span class="thumb prdimage" style="background-image: url('http://image.codigallery.com/stco/2024/ss/main/SEJVZ74OSB_m10.jpg?RS=341x338')" rel="/stco/2024/ss/main/SEJVZ74OSB_m10.jpg^/stco/2024/ss/main/SEJVZ74OSB_m0.jpg"></span>
 
                     <div class="color_wrap"></div>
                     <strong class="txt_brand"> STCO </strong>
@@ -836,7 +799,7 @@
                 </li>
                 <li>
                   <a href="/detail/index/SEJVZ73SET">
-                    <span class="thumb prdimage" style="background-image: url('./testImg/mcut/DTSVB11CSL_m1.jpg')" rel="./testImg/mcut/DTSVB11CSL_m1.jpg^./testImg/mcut/DTSVB11CSL_m0.jpg"></span>
+                    <span class="thumb prdimage" style="background-image: url('http://image.codigallery.com/stco/2024/ss/main/SEJVZ73NSD_m0.jpg?RS=341x338')" rel="/stco/2024/ss/main/SEJVZ73NSD_m0.jpg^/stco/2024/ss/main/SEPVZ73TSD_m0.jpg"></span>
 
                     <div class="color_wrap"></div>
                     <strong class="txt_brand"> STCO </strong>
@@ -850,7 +813,7 @@
                 </li>
                 <li>
                   <a href="/detail/index/SEJVZ72SET">
-                    <span class="thumb prdimage" style="background-image: url('./testImg/prdcut/DDSVC02CCO_m.jpg')" rel="./testImg/prdcut/DDSVC02CCO_m.jpg^./testImg/prdcut/DDSVC02CCO_m.jpg"></span>
+                    <span class="thumb prdimage" style="background-image: url('http://image.codigallery.com/stco/2024/ss/main/SEJVZ72NSC_m0.jpg?RS=341x338')" rel="/stco/2024/ss/main/SEJVZ72NSC_m0.jpg^/stco/2024/ss/main/SEPVZ72TSC_m0.jpg"></span>
 
                     <div class="color_wrap"></div>
                     <strong class="txt_brand"> STCO </strong>
@@ -864,7 +827,7 @@
                 </li>
                 <li>
                   <a href="/detail/index/SEJVZ71SET">
-                    <span class="thumb prdimage" style="background-image: url('./testImg/prdcut/DDSVC01CSG_m.jpg')" rel="./testImg/prdcut/DDSVC01CSG_m.jpg^./testImg/prdcut/DDSVC01CSG_m.jpg"></span>
+                    <span class="thumb prdimage" style="background-image: url('http://image.codigallery.com/stco/2024/ss/main/SEJVZ71NSB_m1.jpg?RS=341x338')" rel="/stco/2024/ss/main/SEJVZ71NSB_m1.jpg^/stco/2024/ss/main/SEPVZ71TSB_m1.jpg"></span>
 
                     <div class="color_wrap"></div>
                     <strong class="txt_brand"> STCO </strong>
@@ -1325,7 +1288,7 @@
                 <li>
                   <a href="/detail/index/0EJTC02SET">
                     <span class="thumb prdimage" style="line-height: 325px; background-image: url('http://image.codigallery.com/zero/2022/fw/main/0EJTC02GSH_m0.jpg?RS=341x338')" rel="/zero/2022/fw/main/0EJTC02GSH_m0.jpg^/zero/2022/fw/main/0EJTC02GSH_m.jpg">
-                      <img src="Content/images/detail/video_icon.png" style="vertical-align: bottom; padding-left: 10px" />
+                      <img src="/Content/images/detail/video_icon.png" style="vertical-align: bottom; padding-left: 10px" />
                     </span>
 
                     <div class="color_wrap"></div>
@@ -1346,11 +1309,11 @@
             </div>
 
             <div class="full_page" style="padding-top: 0px">
-              <div class="pages"><img src="Content/201608/images/common_201608/paging_prev.jpg" /><span>1</span><img src="Content/201608/images/common_201608/paging_next.jpg" /></div>
+              <div class="pages"><img src="/Content/201608/images/common_201608/paging_prev.jpg" /><span>1</span><img src="/Content/201608/images/common_201608/paging_next.jpg" /></div>
             </div>
           </div>
         </div>
-        <script src="Common/js/swiper-bundle.min.js"></script>
+        <script src="/Areas/mobile/Common/js/swiper-bundle.min.js"></script>
         <script>
           var codiSwp = new Swiper(".codi_swp .swiper-container", {
             loop: true,
@@ -1376,9 +1339,9 @@
         <div id="floatingBanner" style="position: fixed; left: 46%; width: 48px; display: block; z-index: 9997"></div>
 
         <div id="page_btn">
-          <a href="javascript:void(0);" id="page_btn_back"><img src="Content/201608/images/common_201608/bt_back.png" alt="" /></a>
-          <a href="#" id="page_btn_up"><img src="Content/201608/images/common_201608/page_up.gif" alt="" /></a>
-          <a href="#" id="page_btn_down" style="margin-top: 7px"><img src="Content/201608/images/common_201608/page_down.gif" alt="" /></a>
+          <a href="javascript:void(0);" id="page_btn_back"><img src="/Content/201608/images/common_201608/bt_back.png" alt="" /></a>
+          <a href="#" id="page_btn_up"><img src="/Content/201608/images/common_201608/page_up.gif" alt="" /></a>
+          <a href="#" id="page_btn_down" style="margin-top: 7px"><img src="/Content/201608/images/common_201608/page_down.gif" alt="" /></a>
         </div>
 
         <script type="text/javascript">
