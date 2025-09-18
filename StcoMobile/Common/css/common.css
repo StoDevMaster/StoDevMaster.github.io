@@ -3779,7 +3779,7 @@ dd.payinfo_check_wrap div.payinfo_user span{position:absolute; right:0; top:0; p
 .main_goods_list .main_goods_list_item + .main_goods_list_item { border-top: 1px solid #ededed; }
 .main_goods_list .main_goods_list_item a { display: flex; }
 .main_goods_list .main_goods_list_item .img { width: 21.66vw; }
-.main_goods_list .main_goods_list_item .img img { width: 100%; }
+.main_goods_list .main_goods_list_item .img img { width: 100%; height: 100%; object-fit: cover; }
 .main_goods_list .main_goods_list_item .text { flex: 1; padding: 2.08vw 3.47vw; }
 .main_goods_list .main_goods_list_item .text > strong { display: block; color: #242424; font-size: 3.88vw; font-weight: 600; line-height: 1.3;    word-break: keep-all; }
 .main_goods_list .main_goods_list_item .text > p { margin: 0 0 3.33vw; color: #848484; font-size: 3.47vw; line-height: 1.2; }
