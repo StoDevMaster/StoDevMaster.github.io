@@ -287,6 +287,9 @@
 .main_visual .inner_container::before { left: -100%; }
 .main_visual .inner_container::after { right: -100%; }
 .main_visual .swiper { overflow: visible; }
+.main_visual .swiper .swiper-slide .img img {
+    width: 100%;
+}
 
 .main_visual .swiper a { display: block; }
 .main_visual .swiper .text { position: absolute; left: 0; bottom: 0; z-index: 1; width: 100%; box-sizing: border-box; padding: 0 35px 60px; }
